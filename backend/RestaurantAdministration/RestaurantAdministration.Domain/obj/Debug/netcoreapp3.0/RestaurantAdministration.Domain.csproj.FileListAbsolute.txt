@@ -1,0 +1,5 @@
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Domain\bin\Debug\netcoreapp3.0\RestaurantAdministration.Domain.deps.json
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Domain\bin\Debug\netcoreapp3.0\RestaurantAdministration.Domain.dll
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Domain\obj\Debug\netcoreapp3.0\RestaurantAdministration.Domain.csprojAssemblyReference.cache
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Domain\obj\Debug\netcoreapp3.0\RestaurantAdministration.Domain.AssemblyInfoInputs.cache
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Domain\obj\Debug\netcoreapp3.0\RestaurantAdministration.Domain.AssemblyInfo.cs
