@@ -1,0 +1,13 @@
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\bin\Debug\netcoreapp3.0\RestaurantAdministration.Application.deps.json
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\bin\Debug\netcoreapp3.0\RestaurantAdministration.Application.dll
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\bin\Debug\netcoreapp3.0\RestaurantAdministration.Application.pdb
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\bin\Debug\netcoreapp3.0\RestaurantAdministration.Domain.dll
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\bin\Debug\netcoreapp3.0\RestaurantAdministration.EF.dll
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\bin\Debug\netcoreapp3.0\RestaurantAdministration.Domain.pdb
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\bin\Debug\netcoreapp3.0\RestaurantAdministration.EF.pdb
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\obj\Debug\netcoreapp3.0\RestaurantAdministration.Application.csprojAssemblyReference.cache
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\obj\Debug\netcoreapp3.0\RestaurantAdministration.Application.AssemblyInfoInputs.cache
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\obj\Debug\netcoreapp3.0\RestaurantAdministration.Application.AssemblyInfo.cs
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\obj\Debug\netcoreapp3.0\RestaurantAdministration.Application.csproj.CopyComplete
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\obj\Debug\netcoreapp3.0\RestaurantAdministration.Application.dll
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\obj\Debug\netcoreapp3.0\RestaurantAdministration.Application.pdb

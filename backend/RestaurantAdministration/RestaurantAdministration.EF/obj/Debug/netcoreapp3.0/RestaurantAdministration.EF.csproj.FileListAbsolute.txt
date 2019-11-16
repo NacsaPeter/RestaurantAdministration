@@ -1,0 +1,11 @@
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.EF\bin\Debug\netcoreapp3.0\RestaurantAdministration.EF.deps.json
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.EF\bin\Debug\netcoreapp3.0\RestaurantAdministration.EF.dll
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.EF\obj\Debug\netcoreapp3.0\RestaurantAdministration.EF.csprojAssemblyReference.cache
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.EF\obj\Debug\netcoreapp3.0\RestaurantAdministration.EF.AssemblyInfoInputs.cache
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.EF\obj\Debug\netcoreapp3.0\RestaurantAdministration.EF.AssemblyInfo.cs
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.EF\bin\Debug\netcoreapp3.0\RestaurantAdministration.EF.pdb
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.EF\bin\Debug\netcoreapp3.0\RestaurantAdministration.Domain.dll
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.EF\bin\Debug\netcoreapp3.0\RestaurantAdministration.Domain.pdb
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.EF\obj\Debug\netcoreapp3.0\RestaurantAdministration.EF.csproj.CopyComplete
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.EF\obj\Debug\netcoreapp3.0\RestaurantAdministration.EF.dll
+C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.EF\obj\Debug\netcoreapp3.0\RestaurantAdministration.EF.pdb
