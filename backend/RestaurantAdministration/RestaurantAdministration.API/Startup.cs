@@ -36,7 +36,10 @@ namespace RestaurantAdministration.API
             services.AddDbContext<ApplicationDbContext>(opt => opt.UseInMemoryDatabase("RADb"));
 
             services.AddTransient<IRegularGuestAppService, RegularGuestAppService>();
+            services.AddTransient<IMenuAppService, MenuAppService>();
+
             services.AddTransient<IRegularGuestRepository, RegularGuestRepository>();
+            services.AddTransient<IMenuRepository, MenuRepository>();
 
             services.AddControllers();
 

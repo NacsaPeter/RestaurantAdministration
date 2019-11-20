@@ -1,26 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nacsa\\OneDrive\\Dokumentumok\\git\\RestaurantAdministration\\backend\\RestaurantAdministration\\RestaurantAdministration.Domain\\RestaurantAdministration.Domain.csproj": {}
+    "D:\\egyetem\\MSc\\9. félév\\SzoftArch\\RestaurantAdministration\\backend\\RestaurantAdministration\\RestaurantAdministration.Domain\\RestaurantAdministration.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nacsa\\OneDrive\\Dokumentumok\\git\\RestaurantAdministration\\backend\\RestaurantAdministration\\RestaurantAdministration.Domain\\RestaurantAdministration.Domain.csproj": {
+    "D:\\egyetem\\MSc\\9. félév\\SzoftArch\\RestaurantAdministration\\backend\\RestaurantAdministration\\RestaurantAdministration.Domain\\RestaurantAdministration.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nacsa\\OneDrive\\Dokumentumok\\git\\RestaurantAdministration\\backend\\RestaurantAdministration\\RestaurantAdministration.Domain\\RestaurantAdministration.Domain.csproj",
+        "projectUniqueName": "D:\\egyetem\\MSc\\9. félév\\SzoftArch\\RestaurantAdministration\\backend\\RestaurantAdministration\\RestaurantAdministration.Domain\\RestaurantAdministration.Domain.csproj",
         "projectName": "RestaurantAdministration.Domain",
-        "projectPath": "C:\\Users\\nacsa\\OneDrive\\Dokumentumok\\git\\RestaurantAdministration\\backend\\RestaurantAdministration\\RestaurantAdministration.Domain\\RestaurantAdministration.Domain.csproj",
-        "packagesPath": "C:\\Users\\nacsa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nacsa\\OneDrive\\Dokumentumok\\git\\RestaurantAdministration\\backend\\RestaurantAdministration\\RestaurantAdministration.Domain\\obj\\",
+        "projectPath": "D:\\egyetem\\MSc\\9. félév\\SzoftArch\\RestaurantAdministration\\backend\\RestaurantAdministration\\RestaurantAdministration.Domain\\RestaurantAdministration.Domain.csproj",
+        "packagesPath": "C:\\Users\\jj\\.nuget\\packages\\",
+        "outputPath": "D:\\egyetem\\MSc\\9. félév\\SzoftArch\\RestaurantAdministration\\backend\\RestaurantAdministration\\RestaurantAdministration.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\nacsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\jj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"

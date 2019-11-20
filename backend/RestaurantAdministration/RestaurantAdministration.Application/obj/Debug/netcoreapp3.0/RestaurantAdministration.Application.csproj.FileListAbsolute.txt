@@ -11,3 +11,16 @@ C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\Restau
 C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\obj\Debug\netcoreapp3.0\RestaurantAdministration.Application.csproj.CopyComplete
 C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\obj\Debug\netcoreapp3.0\RestaurantAdministration.Application.dll
 C:\Users\nacsa\OneDrive\Dokumentumok\git\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\obj\Debug\netcoreapp3.0\RestaurantAdministration.Application.pdb
+D:\egyetem\MSc\9. félév\SzoftArch\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\bin\Debug\netcoreapp3.0\RestaurantAdministration.Application.deps.json
+D:\egyetem\MSc\9. félév\SzoftArch\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\bin\Debug\netcoreapp3.0\RestaurantAdministration.Application.dll
+D:\egyetem\MSc\9. félév\SzoftArch\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\bin\Debug\netcoreapp3.0\RestaurantAdministration.Application.pdb
+D:\egyetem\MSc\9. félév\SzoftArch\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\bin\Debug\netcoreapp3.0\RestaurantAdministration.Domain.dll
+D:\egyetem\MSc\9. félév\SzoftArch\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\bin\Debug\netcoreapp3.0\RestaurantAdministration.EF.dll
+D:\egyetem\MSc\9. félév\SzoftArch\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\bin\Debug\netcoreapp3.0\RestaurantAdministration.Domain.pdb
+D:\egyetem\MSc\9. félév\SzoftArch\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\bin\Debug\netcoreapp3.0\RestaurantAdministration.EF.pdb
+D:\egyetem\MSc\9. félév\SzoftArch\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\obj\Debug\netcoreapp3.0\RestaurantAdministration.Application.csprojAssemblyReference.cache
+D:\egyetem\MSc\9. félév\SzoftArch\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\obj\Debug\netcoreapp3.0\RestaurantAdministration.Application.AssemblyInfoInputs.cache
+D:\egyetem\MSc\9. félév\SzoftArch\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\obj\Debug\netcoreapp3.0\RestaurantAdministration.Application.AssemblyInfo.cs
+D:\egyetem\MSc\9. félév\SzoftArch\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\obj\Debug\netcoreapp3.0\RestaurantAdministration.Application.csproj.CopyComplete
+D:\egyetem\MSc\9. félév\SzoftArch\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\obj\Debug\netcoreapp3.0\RestaurantAdministration.Application.dll
+D:\egyetem\MSc\9. félév\SzoftArch\RestaurantAdministration\backend\RestaurantAdministration\RestaurantAdministration.Application\obj\Debug\netcoreapp3.0\RestaurantAdministration.Application.pdb
