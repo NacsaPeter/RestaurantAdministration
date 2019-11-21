@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAdministration.Application.Dtos;
-using RestaurantAdministration.Application.Exceptions;
 using RestaurantAdministration.Application.Interfaces;
 
 namespace RestaurantAdministration.API.Controllers
@@ -21,30 +20,26 @@ namespace RestaurantAdministration.API.Controllers
             _service = service;
         }
 
-        [HttpPost("guests")]
-        public async Task<ActionResult<IEnumerable<RegularGuestDto>>> GetRegularGuests([FromBody] RegularGuestDto filter)
+        [HttpGet("{name}")]
+        public async Task<ActionResult<IEnumerable<RegularGuestDto>>> GetRegularGuests(string name)
         {
-            return Ok(await _service.GetRegularGuestsAsync(filter));
+            return Ok(await _service.GetRegularGuestsAsync(name));
         }
 
         [HttpPost]
         public async Task<ActionResult<RegularGuestDto>> CreateRegularGuest([FromBody] RegularGuestDto regularGuestDto)
         {
-            if (regularGuestDto == null ||
-                string.IsNullOrEmpty(regularGuestDto.Name) ||
-                string.IsNullOrEmpty(regularGuestDto.Address) ||
-                regularGuestDto.BirthDay == null)
+            if (regularGuestDto == null)
             {
                 return BadRequest("Guest data must be set!");
             }
             try
             {
-                RegularGuestDto created = await _service.CreateRegularGuestAsync(regularGuestDto);
-                return CreatedAtAction(nameof(GetRegularGuests), created);
+                return Ok(await _service.CreateRegularGuestAsync(regularGuestDto));
             }
-            catch (RegularGuestExistsException)
+            catch (Exception e)
             {
-                return Conflict("Regular guest is already exists.");
+                return Conflict(e.Message);
             }
         }
     }

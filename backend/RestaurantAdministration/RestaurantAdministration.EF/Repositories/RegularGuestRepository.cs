@@ -37,28 +37,11 @@ namespace RestaurantAdministration.EF.Repositories
             return guest;
         }
 
-        public async Task<IEnumerable<RegularGuest>> GetRegularGuestsAsync(RegularGuest filter)
+        public async Task<IEnumerable<RegularGuest>> GetRegularGuestsAsync(string name)
         {
-            var guests = await _context.RegularGuests
-                .Where(g => g.Name.ToLower().Contains((filter.Name ?? "").ToLower()))
+            return await _context.RegularGuests
+                .Where(g => g.Name.ToLower().Contains((name).ToLower()))
                 .ToListAsync();
-
-            if (filter.Id > 0)
-            {
-                guests = guests.Where(g => g.Id == filter.Id).ToList();
-            }
-
-            if (filter.BirthDay != null)
-            {
-                guests = guests.Where(g => g.BirthDay == filter.BirthDay).ToList();
-            }
-
-            if (!string.IsNullOrEmpty(filter.Address))
-            {
-                guests = guests.Where(g => g.Address == filter.Address).ToList();
-            }
-
-            return guests;
         }
     }
 }

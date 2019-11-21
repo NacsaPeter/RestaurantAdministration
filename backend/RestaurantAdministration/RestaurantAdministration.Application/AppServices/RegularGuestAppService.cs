@@ -1,5 +1,4 @@
 ﻿using RestaurantAdministration.Application.Dtos;
-using RestaurantAdministration.Application.Exceptions;
 using RestaurantAdministration.Application.Interfaces;
 using RestaurantAdministration.Domain.Models;
 using RestaurantAdministration.EF.Interfaces;
@@ -27,15 +26,14 @@ namespace RestaurantAdministration.Application.AppServices
             RegularGuest created = await _repository.AddRegularGuestAsync(guest);
             if (created == null)
             {
-                throw new RegularGuestExistsException();
+                throw new Exception("Regular guest already exists.");
             }
             return new RegularGuestDto(created);
         }
 
-        public async Task<IEnumerable<RegularGuestDto>> GetRegularGuestsAsync(RegularGuestDto filter)
+        public async Task<IEnumerable<RegularGuestDto>> GetRegularGuestsAsync(string name)
         {
-            RegularGuest guest = filter.ToEntity();
-            var guests = await _repository.GetRegularGuestsAsync(guest);
+            var guests = await _repository.GetRegularGuestsAsync(name);
             return guests.Select(g => new RegularGuestDto(g));
         }
     }
