@@ -45,6 +45,9 @@ namespace RestaurantAdministration.API
             services.AddTransient<ITableRepository, TableRepository>();
             services.AddTransient<IDiscountRepository, DiscountRepository>();
 
+            services.AddTransient<ITableAppService, TableAppService>();
+            services.AddTransient<ITableRepository, TableRepository>();
+
             services.AddControllers();
 
             services.AddSwaggerGen(c =>
