@@ -14,6 +14,7 @@ namespace RestaurantAdministration.Application.Interfaces
         Task<IEnumerable<TableDto>> GetTablesAsync();
         Task<TableReservationDto> CreateTableReservationAsync(CreateTableReservationDto dto);
         Task<IEnumerable<TableReservationDto>> GetTableReservationsAsync(string name);
+        Task<TableReservationDto> GetCurrentTableReservationAsync(int number);
         Task DeleteTableReservationAsync(int reservationId);
     }
 }

@@ -97,6 +97,19 @@ namespace RestaurantAdministration.API.Controllers
             return Ok(await _service.GetTableReservationsAsync(name));
         }
 
+        [HttpGet("reservation/table/{number}")]
+        public async Task<ActionResult<TableReservationDto>> GetCurrentTableReservation(int number)
+        {   
+            try
+            {
+                return Ok(await _service.GetCurrentTableReservationAsync(number));
+            }
+            catch (Exception e)
+            {
+                return Conflict(e.Message);
+            }
+        }
+
         [HttpDelete("reservation/{reservationId}")]
         public async Task<ActionResult> DeleteTableReservation(int reservationId)
         {

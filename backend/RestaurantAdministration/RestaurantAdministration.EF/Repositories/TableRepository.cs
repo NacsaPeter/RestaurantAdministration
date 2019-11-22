@@ -11,7 +11,7 @@ namespace RestaurantAdministration.EF.Repositories
 {
     public class TableRepository : ITableRepository
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public TableRepository(ApplicationDbContext context)
         {
@@ -136,6 +136,14 @@ namespace RestaurantAdministration.EF.Repositories
             await _context.SaveChangesAsync();
 
             return true;
+        }
+
+        public async Task<TableReservation> GetCurrentTableReservationAsync(int number)
+        {
+            return await _context.TableReservations
+                .Include(x => x.Table)
+                .Where(x => x.Table.Number == number && DateTime.Now >= x.From && DateTime.Now <= x.To)
+                .SingleOrDefaultAsync();
         }
     }
 }

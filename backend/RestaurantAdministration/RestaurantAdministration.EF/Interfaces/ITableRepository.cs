@@ -14,6 +14,7 @@ namespace RestaurantAdministration.EF.Interfaces
         Task<IEnumerable<Table>> GetTablesAsync();
         Task<TableReservation> CreateTableReservationAsync(int numberOfSeats, DateTime date, double hours, string name);
         Task<IEnumerable<TableReservation>> GetTableReservationsAsync(string name);
+        Task<TableReservation> GetCurrentTableReservationAsync(int number);
         Task<bool> DeleteTableReservationAsync(int reservationId);
     }
 }

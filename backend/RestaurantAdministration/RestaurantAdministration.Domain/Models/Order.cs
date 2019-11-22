@@ -10,8 +10,8 @@ namespace RestaurantAdministration.Domain.Models
         public bool IsDelivery { get; set; }
         public string DeliveryAddress { get; set; }
 
-        public int? TableId { get; set; }
-        public Table Table { get; set; }
+        public int? TableReservationId { get; set; }
+        public TableReservation TableReservation { get; set; }
 
         public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
