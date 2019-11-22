@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace RestaurantAdministration.Application.Interfaces
 {
-    public interface IRegularGuestAppService
+    public interface IDiscountAppService
     {
-        Task<RegularGuestDto> CreateRegularGuestAsync(RegularGuestDto regularGuestDto);
-        Task<IEnumerable<RegularGuestDto>> GetRegularGuestsAsync(string name);
+        Task<DiscountDto> CreateDiscountAsync(DiscountDto discountDto);
+        Task DeleteDiscountAsync(int id);
+        Task<IEnumerable<DiscountDto>> GetAllDiscountAsync();
     }
 }

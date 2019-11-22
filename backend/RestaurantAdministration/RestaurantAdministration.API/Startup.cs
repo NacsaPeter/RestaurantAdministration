@@ -37,9 +37,13 @@ namespace RestaurantAdministration.API
 
             services.AddTransient<IRegularGuestAppService, RegularGuestAppService>();
             services.AddTransient<IMenuAppService, MenuAppService>();
+            services.AddTransient<ITableAppService, TableAppService>();
+            services.AddTransient<IDiscountAppService, DiscountAppService>();
 
             services.AddTransient<IRegularGuestRepository, RegularGuestRepository>();
             services.AddTransient<IMenuRepository, MenuRepository>();
+            services.AddTransient<ITableRepository, TableRepository>();
+            services.AddTransient<IDiscountRepository, DiscountRepository>();
 
             services.AddControllers();
 

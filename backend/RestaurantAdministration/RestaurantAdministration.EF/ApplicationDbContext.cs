@@ -29,6 +29,8 @@ namespace RestaurantAdministration.EF
             base.OnModelCreating(builder);
 
             builder.ApplyConfiguration(new DiscountConfiguration());
+            builder.ApplyConfiguration(new CategoryConfiguration());
+            builder.ApplyConfiguration(new TableConfiguration());
         }
     }
 }

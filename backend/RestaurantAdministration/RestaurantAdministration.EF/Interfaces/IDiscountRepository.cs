@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace RestaurantAdministration.EF.Interfaces
 {
-    public interface IRegularGuestRepository
+    public interface IDiscountRepository
     {
-        Task<RegularGuest> AddRegularGuestAsync(RegularGuest guest);
-        Task<IEnumerable<RegularGuest>> GetRegularGuestsAsync(string name);
+        Task<Discount> AddDiscountAsync(Discount discount);
+        Task<bool> DeleteDiscountAsync(int id);
+        Task<IEnumerable<Discount>> GetAllDiscountAsync();
     }
 }
