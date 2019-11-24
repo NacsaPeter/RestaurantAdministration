@@ -35,5 +35,57 @@ namespace RestaurantAdministration.EF.Repositories
 
             return order;
         }
+
+        public async Task<Order> GetOrderAsync(int reservationId)
+        {
+            return await _context.Orders
+                .Include(x => x.TableReservation)
+                .Include(x => x.OrderItems)
+                .Where(x => x.TableReservationId == reservationId)
+                .SingleOrDefaultAsync();
+        }
+
+        public async Task<Order> UpdateOrderAsync(Order order)
+        {
+            var old = await _context.Orders
+                .Include(x => x.TableReservation)
+                .Include(x => x.OrderItems)
+                .Where(x => x.Id == order.Id)
+                .SingleOrDefaultAsync();
+
+            if (old == null)
+            {
+                return null;
+            }
+
+            var itemsToRemove = new List<OrderItem>();
+            foreach (var oldItem in old.OrderItems)
+            {
+                var item = order.OrderItems
+                    .Where(x => x.Id == oldItem.Id)
+                    .SingleOrDefault();
+
+                if (item == null)
+                {
+                    itemsToRemove.Add(oldItem);
+                }
+            }
+            _context.OrderItems.RemoveRange(itemsToRemove);
+
+            foreach (var item in order.OrderItems)
+            {
+                if (item.Id == 0)
+                {
+                    _context.OrderItems.Add(item);
+                }
+                else
+                {
+                    _context.OrderItems.Update(item);
+                }
+            }
+
+            await _context.SaveChangesAsync();
+            return order;
+        }
     }
 }

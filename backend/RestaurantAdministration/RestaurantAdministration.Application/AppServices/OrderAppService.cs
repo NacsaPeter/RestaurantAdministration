@@ -27,5 +27,26 @@ namespace RestaurantAdministration.Application.AppServices
             }
             return new OrderDto(created);
         }
+
+        public async Task<OrderDto> GetOrderAsync(int reservationId)
+        {
+            var order = await _repository.GetOrderAsync(reservationId);
+            if (order == null)
+            {
+                throw new Exception("Order does not exist");
+            }
+            return new OrderDto(order);
+        }
+
+        public async Task<OrderDto> UpdateOrderAsync(OrderDto orderDto)
+        {
+            var order = orderDto.ToEntity();
+            var updated = await _repository.UpdateOrderAsync(order);
+            if (updated == null)
+            {
+                throw new Exception("Order does not exist");
+            }
+            return new OrderDto(updated);
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace RestaurantAdministration.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateOrder([FromBody] OrderDto orderDto)
+        public async Task<ActionResult<OrderDto>> CreateOrder([FromBody] OrderDto orderDto)
         {
             if (orderDto == null)
             {
@@ -30,6 +30,36 @@ namespace RestaurantAdministration.API.Controllers
             try
             {
                 return Ok(await _service.CreateOrderAsync(orderDto));
+            }
+            catch (Exception e)
+            {
+                return Conflict(e.Message);
+            }
+        }
+
+        [HttpGet("{reservationId}")]
+        public async Task<ActionResult<OrderDto>> GetOrderByTableReservationId(int reservationId)
+        {
+            try
+            {
+                return Ok(await _service.GetOrderAsync(reservationId));
+            }
+            catch (Exception e)
+            {
+                return Conflict(e.Message);
+            }
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<OrderDto>> UpdateOrder([FromBody] OrderDto orderDto)
+        {
+            if (orderDto == null)
+            {
+                return BadRequest("Order data must be set!");
+            }
+            try
+            {
+                return Ok(await _service.UpdateOrderAsync(orderDto));
             }
             catch (Exception e)
             {

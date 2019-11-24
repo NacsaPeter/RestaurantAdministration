@@ -9,5 +9,7 @@ namespace RestaurantAdministration.Application.Interfaces
     public interface IOrderAppService
     {
         Task<OrderDto> CreateOrderAsync(OrderDto orderDto);
+        Task<OrderDto> GetOrderAsync(int reservationId);
+        Task<OrderDto> UpdateOrderAsync(OrderDto orderDto);
     }
 }

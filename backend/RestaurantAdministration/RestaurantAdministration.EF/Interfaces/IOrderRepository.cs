@@ -9,5 +9,7 @@ namespace RestaurantAdministration.EF.Interfaces
     public interface IOrderRepository
     {
         Task<Order> AddOrderAsync(Order order);
+        Task<Order> GetOrderAsync(int reservationId);
+        Task<Order> UpdateOrderAsync(Order order);
     }
 }
