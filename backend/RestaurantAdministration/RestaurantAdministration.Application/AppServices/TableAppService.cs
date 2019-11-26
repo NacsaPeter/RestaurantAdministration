@@ -59,6 +59,15 @@ namespace RestaurantAdministration.Application.AppServices
             }
         }
 
+        public async Task FinishTableReservationAsync(int reservationId)
+        {
+            bool success = await _repository.FinishTableReservationAsync(reservationId);
+            if (!success)
+            {
+                throw new Exception("Reservation does not exist.");
+            }
+        }
+
         public async Task<TableReservationDto> GetCurrentTableReservationAsync(int number)
         {
             var reservation = await _repository.GetCurrentTableReservationAsync(number);

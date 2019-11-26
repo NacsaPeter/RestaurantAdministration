@@ -10,6 +10,7 @@ namespace RestaurantAdministration.EF.Interfaces
     {
         Task<Order> AddOrderAsync(Order order);
         Task<Order> GetOrderAsync(int reservationId);
+        Task<Order> GetOrderByIdAsync(int id);
         Task<Order> UpdateOrderAsync(Order order);
     }
 }

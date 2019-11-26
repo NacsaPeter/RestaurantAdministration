@@ -123,5 +123,19 @@ namespace RestaurantAdministration.API.Controllers
                 return Conflict(e.Message);
             }
         }
+
+        [HttpPut("reservation/finish/{reservationId}")]
+        public async Task<ActionResult> FinishTableReservation(int reservationId)
+        {
+            try
+            {
+                await _service.FinishTableReservationAsync(reservationId);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return Conflict(e.Message);
+            }
+        }
     }
 }

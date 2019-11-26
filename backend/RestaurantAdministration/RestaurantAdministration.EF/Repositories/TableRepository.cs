@@ -145,5 +145,21 @@ namespace RestaurantAdministration.EF.Repositories
                 .Where(x => x.Table.Number == number && DateTime.Now >= x.From && DateTime.Now <= x.To)
                 .SingleOrDefaultAsync();
         }
+
+        public async Task<bool> FinishTableReservationAsync(int reservationId)
+        {
+            var reservation = await _context.TableReservations
+                .Where(x => x.Id == reservationId)
+                .SingleOrDefaultAsync();
+
+            if (reservation == null)
+            {
+                return false;
+            }
+
+            reservation.To = DateTime.Now;
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }

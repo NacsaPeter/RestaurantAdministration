@@ -45,6 +45,15 @@ namespace RestaurantAdministration.EF.Repositories
                 .SingleOrDefaultAsync();
         }
 
+        public async Task<Order> GetOrderByIdAsync(int id)
+        {
+            return await _context.Orders
+                .Include(x => x.TableReservation)
+                .Include(x => x.OrderItems)
+                .Where(x => x.Id == id)
+                .SingleOrDefaultAsync();
+        }
+
         public async Task<Order> UpdateOrderAsync(Order order)
         {
             var old = await _context.Orders
