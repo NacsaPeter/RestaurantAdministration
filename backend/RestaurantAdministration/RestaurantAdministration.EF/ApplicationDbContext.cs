@@ -12,6 +12,7 @@ namespace RestaurantAdministration.EF
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Discount> Discounts { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<InvoiceItem> invoiceItems { get; set; }
         public DbSet<MenuItem> MenuItems { get; set; }

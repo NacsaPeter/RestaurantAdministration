@@ -35,18 +35,23 @@ namespace RestaurantAdministration.API
         {
             services.AddDbContext<ApplicationDbContext>(opt => opt.UseInMemoryDatabase("RADb"));
 
-            services.AddTransient<IRegularGuestAppService, RegularGuestAppService>();
-            services.AddTransient<IMenuAppService, MenuAppService>();
-            services.AddTransient<ITableAppService, TableAppService>();
             services.AddTransient<IDiscountAppService, DiscountAppService>();
-
-            services.AddTransient<IRegularGuestRepository, RegularGuestRepository>();
-            services.AddTransient<IMenuRepository, MenuRepository>();
-            services.AddTransient<ITableRepository, TableRepository>();
-            services.AddTransient<IDiscountRepository, DiscountRepository>();
-
+            services.AddTransient<IFeedbackAppService, FeedbackAppService>();
+            services.AddTransient<IMenuAppService, MenuAppService>();
+            services.AddTransient<IOrderAppService, OrderAppService>();
+            services.AddTransient<IPaymentAppService, PaymentAppService>();
+            services.AddTransient<IRegularGuestAppService, RegularGuestAppService>();
             services.AddTransient<ITableAppService, TableAppService>();
+
+
+            services.AddTransient<IDiscountRepository, DiscountRepository>();
+            services.AddTransient<IFeedbackRepository, FeedbackRepository>();
+            services.AddTransient<IMenuRepository, MenuRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<IPaymentRepository, PaymentRepository>();
+            services.AddTransient<IRegularGuestRepository, RegularGuestRepository>();
             services.AddTransient<ITableRepository, TableRepository>();
+            
 
             services.AddControllers();
 
