@@ -22,7 +22,7 @@ export class SidebarComponent {
         const url = this.router.url;
         if (url.match('/discount')) {
             this.isDiscount = true;
-        } else if (url.match('/feedback')) {
+        } else if (url.match('/statistics')) {
             this.isFeedback = true;
         } else if (url.match('/menu')) {
             this.isMenu = true;

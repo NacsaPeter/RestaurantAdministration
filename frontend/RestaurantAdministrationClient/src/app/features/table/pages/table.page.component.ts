@@ -1,7 +1,4 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import { Component, OnInit } from '@angular/core';
 import { ITableViewModel } from '../models/table.model';
 import { MatDialog } from '@angular/material/dialog';
 import { TableDialogComponent } from '../components/table-dialog.component';
@@ -16,12 +13,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class TablePageComponent implements OnInit {
 
-    // displayedColumns: string[] = ['number', 'numberOfSeats', 'edit', 'remove'];
-    // dataSource = new MatTableDataSource<ITableViewModel>(ELEMENT_DATA);
-
-    // @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-    // @ViewChild(MatSort, {static: true}) sort: MatSort;
-
     tables: ITableViewModel[] = [];
     isLoading: boolean;
 
@@ -32,8 +23,6 @@ export class TablePageComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-    //     this.dataSource.paginator = this.paginator;
-    //     this.dataSource.sort = this.sort;
         this.fetchData().subscribe();
     }
 

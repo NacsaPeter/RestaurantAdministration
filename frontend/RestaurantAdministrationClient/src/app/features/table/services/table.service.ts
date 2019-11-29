@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { ITableViewModel } from '../models/table.model';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { API_BASE_URL } from 'src/app/core/core.module';
 

@@ -1,0 +1,48 @@
+<div class="main-content" style="padding: 20px 0px; min-height: calc(100% - 40px); min-width: 750px;">
+    <mat-card class="feedback-container" *ngIf="!isSent">
+        <div class="feedback-title">Please rate our restaurant</div>
+
+        <div class="question">How would you rate the quality of service?</div>
+        <div class="feedback-item">
+            <star-rating value="0" checkedcolor="gold" uncheckedcolor="lightgray" size="50px" readonly="false"
+                (rate)="rate($event, 'serviceQuality')"></star-rating>
+        </div>
+
+        <div class="question">What do you think about the cleanliness of the restaurant?</div>
+        <div class="feedback-item">
+            <star-rating value="0" checkedcolor="gold" uncheckedcolor="lightgray" size="50px" readonly="false"
+                (rate)="rate($event, 'cleanness')"></star-rating>
+        </div>
+
+        <div class="question">How did our food taste to you?</div>
+        <div class="feedback-item">
+            <star-rating value="0" checkedcolor="gold" uncheckedcolor="lightgray" size="50px" readonly="false"
+                (rate)="rate($event, 'foodQuality')"></star-rating>
+        </div>
+
+        <div class="question">How did you feel at our restaurant?</div>
+        <div class="feedback-item">
+            <star-rating value="0" checkedcolor="gold" uncheckedcolor="lightgray" size="50px" readonly="false"
+                (rate)="rate($event, 'atmosphere')"></star-rating>
+        </div>
+
+        <div class="question">Please let us know your other comments!</div>
+        <mat-form-field appearance="outline">
+            <textarea matInput spellcheck="false" [(ngModel)]="feedback.other"></textarea>
+        </mat-form-field>
+
+        <div class="button-container">
+            <button mat-raised-button (click)="send()">Send</button>
+        </div>
+
+    </mat-card>
+    <mat-card class="feedback-container" *ngIf="isSent" style="margin-top: 150px;">
+        <div class="feedback-title">
+            Thank you for helping!
+            <mat-icon style="margin-left: 20px;">sentiment_satisfied_alt</mat-icon>
+        </div>
+        <div class="button-container">
+            <button mat-raised-button (click)="back()">Go back</button>
+        </div>
+    </mat-card>
+</div>

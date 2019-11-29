@@ -10,6 +10,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { RemoveItemDialogComponent } from './components/remove-item/remove-item-dialog.component';
 import { FormsModule } from '@angular/forms';
@@ -32,6 +33,7 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
+    MatTooltipModule,
   ],
   exports: [
     CommonModule,
@@ -46,6 +48,7 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
+    MatTooltipModule,
     DialogComponent,
     RemoveItemDialogComponent,
   ],

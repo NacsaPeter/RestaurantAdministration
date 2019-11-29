@@ -18,8 +18,12 @@ const routes: Routes = [
   },
   {
     path: 'feedback',
+    loadChildren: () => import('./features/feedback/feedback/feedback.module').then(m => m.FeedbackModule)
+  },
+  {
+    path: 'statistics',
     component: LayoutComponent,
-    loadChildren: () => import('./features/feedback/feedback.module').then(m => m.FeedbackModule)
+    loadChildren: () => import('./features/feedback/statistics/statistics.module').then(m => m.StatisticsModule)
   },
   {
     path: 'menu',

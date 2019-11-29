@@ -1,0 +1,44 @@
+.feedback-container {
+    color: $dark-green;
+    width: 650px;
+    margin-left: calc(50% - 325px);
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+
+    .feedback-title {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 50px;
+        margin-top: 30px;
+    }
+    
+    .feedback-item {
+        width: 250px;
+        margin-left: calc(50% - 125px);
+        margin-bottom: 30px;
+    }
+    
+    .question {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .mat-form-field {
+        width: 500px;
+        margin: 30px 0px 30px calc(50% - 250px);
+    }
+
+    .mat-raised-button {
+        margin-left: calc(50% - 60px);
+    }
+}
+
+.button-container {
+    .mat-raised-button {
+        background: $medium-green;
+        color: #ffffff;
+        border-radius: 0px;
+        box-shadow: none;
+        width: 120px;
+    }
+}
