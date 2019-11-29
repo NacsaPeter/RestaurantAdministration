@@ -1,0 +1,12 @@
+<div class="dialog-container">
+    <div class="dialog-title">{{ title }}</div>
+
+    <ng-content></ng-content>
+
+    <div class="dialog-buttons">
+        <button mat-raised-button [mat-dialog-close]="dialogClose" [disabled]="disabled">
+            {{ buttonText }}
+        </button>
+        <button mat-button mat-dialog-close>{{ closeText }}</button>
+    </div>
+</div>

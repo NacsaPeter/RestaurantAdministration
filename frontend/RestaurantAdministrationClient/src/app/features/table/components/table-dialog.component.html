@@ -1,0 +1,12 @@
+<app-dialog [title]="title" [buttonText]="buttonText" [dialogClose]="table"
+    [disabled]="!table.number || !table.numberOfSeats">
+
+    <mat-form-field>
+        <input matInput placeholder="Number" [(ngModel)]="table.number" type="number">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Seats" [(ngModel)]="table.numberOfSeats" type="number">
+    </mat-form-field>
+
+</app-dialog>

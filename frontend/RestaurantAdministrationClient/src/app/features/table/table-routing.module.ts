@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { TablePageComponent } from './pages/table.page.component';
 
 const routes: Routes = [
+  { path: '', component: TablePageComponent }
 ];
 
 @NgModule({

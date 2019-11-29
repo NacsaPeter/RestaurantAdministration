@@ -1,0 +1,27 @@
+.dialog-container {
+
+    .dialog-title {
+        font-size: 24px;
+        margin-bottom: 50px;
+    }
+    
+    button {
+        width: 120px;
+        border-radius: 0px;
+        margin: 50px 0px 20px;
+    }
+
+    .mat-raised-button {
+        box-shadow: none;
+        background: $medium-green;
+        color: #ffffff;
+    }
+
+    .mat-form-field {
+        margin-right: 50px;
+    }
+
+    .dialog-text {
+        margin: -10px 80px 10px 0px;
+    }
+}

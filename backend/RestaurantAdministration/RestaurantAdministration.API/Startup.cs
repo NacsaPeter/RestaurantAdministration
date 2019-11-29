@@ -55,6 +55,13 @@ namespace RestaurantAdministration.API
 
             services.AddControllers();
 
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Restaurant Administration API", Version = "v1" });
@@ -70,6 +77,8 @@ namespace RestaurantAdministration.API
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Restaurant Administration API V1");
             });
+
+            app.UseCors("MyPolicy");
 
             if (env.IsDevelopment())
             {

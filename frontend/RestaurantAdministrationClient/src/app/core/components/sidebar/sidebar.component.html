@@ -1,0 +1,35 @@
+<div class="logo-container">
+    <img [src]="'assets/ra.png'" width="220px" class="logo" (click)="navigate('/')" />
+</div>
+<div class="navigation-item" [ngClass]="{ 'current' : isTable }" (click)="navigate('/table')">
+    <mat-icon>deck</mat-icon>
+    <div class="navigation-text">Tables</div>
+</div>
+<div class="navigation-item" [ngClass]="{ 'current' : isMenu }" (click)="navigate('/menu')">
+    <mat-icon>fastfood</mat-icon>
+    <div class="navigation-text">Menu</div>
+</div>
+<div class="navigation-item" [ngClass]="{ 'current' : isReservation }" (click)="navigate('/reservation')">
+    <mat-icon>phone</mat-icon>
+    <div class="navigation-text">Reservation</div>
+</div>
+<div class="navigation-item" [ngClass]="{ 'current' : isOrder }" (click)="navigate('/order')">
+    <mat-icon>restaurant</mat-icon>
+    <div class="navigation-text">Order</div>
+</div>
+<div class="navigation-item" [ngClass]="{ 'current' : isUser }" (click)="navigate('/user')">
+    <mat-icon>perm_identity</mat-icon>
+    <div class="navigation-text">User</div>
+</div>
+<div class="navigation-item" [ngClass]="{ 'current' : isDiscount }" (click)="navigate('/discount')">
+    <mat-icon>trending_down</mat-icon>
+    <div class="navigation-text">Discount</div>
+</div>
+<div class="navigation-item" [ngClass]="{ 'current' : isRegularGuest }" (click)="navigate('/regularguest')">
+    <mat-icon>accessibility_new</mat-icon>
+    <div class="navigation-text">Regular guest</div>
+</div>
+<div class="navigation-item" [ngClass]="{ 'current' : isFeedback }" (click)="navigate('/feedback')">
+    <mat-icon>grade</mat-icon>
+    <div class="navigation-text">Feedback</div>
+</div>

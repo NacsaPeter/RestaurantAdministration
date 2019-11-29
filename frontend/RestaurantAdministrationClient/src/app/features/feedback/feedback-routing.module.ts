@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FeedbackPageComponent } from './pages/feedback.page.component';
 
 const routes: Routes = [
+  { path: '', component: FeedbackPageComponent }
 ];
 
 @NgModule({
