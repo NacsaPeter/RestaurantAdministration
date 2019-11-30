@@ -1,0 +1,11 @@
+<app-dialog [title]="title" [buttonText]="buttonText" [dialogClose]="menuItem">
+
+    <mat-form-field>
+        <input matInput placeholder="Name" [(ngModel)]="menuItem.name" type="text">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Price" [(ngModel)]="menuItem.price" type="number">
+    </mat-form-field>
+
+</app-dialog>

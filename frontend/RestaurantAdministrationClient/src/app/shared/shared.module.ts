@@ -14,6 +14,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { RemoveItemDialogComponent } from './components/remove-item/remove-item-dialog.component';
 import { FormsModule } from '@angular/forms';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
+    MatExpansionModule,
   ],
   exports: [
     CommonModule,
@@ -51,6 +53,7 @@ import { FormsModule } from '@angular/forms';
     MatTooltipModule,
     DialogComponent,
     RemoveItemDialogComponent,
+    MatExpansionModule,
   ],
   entryComponents: [
     RemoveItemDialogComponent,
