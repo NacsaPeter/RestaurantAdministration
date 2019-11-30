@@ -1,0 +1,19 @@
+<app-dialog [title]="title" [buttonText]="buttonText" [dialogClose]="discount">
+
+    <mat-form-field>
+        <input matInput placeholder="Code" [(ngModel)]="discount.code" type="text">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Value" [(ngModel)]="discount.value" type="number">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Type</mat-label>
+        <mat-select [(ngModel)]="discount.type">
+          <mat-option [value]="'Price'"> Price </mat-option>
+          <mat-option [value]="'Percentage'"> Percentage </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+</app-dialog>

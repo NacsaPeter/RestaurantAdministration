@@ -20,6 +20,7 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { TableItemComponent } from './components/table-item/table-item.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material';
 
 @NgModule({
@@ -48,6 +49,7 @@ import { MatNativeDateModule } from '@angular/material';
     MatSelectModule,
     MatExpansionModule,
     MatDatepickerModule,
+    MatCheckboxModule,
     MatNativeDateModule,
   ],
   exports: [
@@ -73,6 +75,7 @@ import { MatNativeDateModule } from '@angular/material';
     MatSelectModule,
     MatExpansionModule,
     MatDatepickerModule,
+    MatCheckboxModule,
     MatNativeDateModule,
   ],
   entryComponents: [
