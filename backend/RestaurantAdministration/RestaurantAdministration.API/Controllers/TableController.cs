@@ -91,10 +91,22 @@ namespace RestaurantAdministration.API.Controllers
             }
         }
 
-        [HttpGet("reservation/{name}")]
-        public async Task<ActionResult<TableReservationDto>> GetTableReservations(string name)
+        [HttpGet("reservation/upcoming")]
+        public async Task<ActionResult<TableReservationDto>> GetUpcomingTableReservations()
         {
-            return Ok(await _service.GetTableReservationsAsync(name));
+            return Ok(await _service.GetUpcomingTableReservationsAsync());
+        }
+
+        [HttpGet("reservation/current")]
+        public async Task<ActionResult<IEnumerable<TableStateDto>>> GetCurrentTableReservations()
+        {
+            return Ok(await _service.GetCurrentTableReservationsAsync());
+        }
+
+        [HttpGet("reservation/finished")]
+        public async Task<ActionResult<TableReservationDto>> GetFinishedTableReservations()
+        {
+            return Ok(await _service.GetFinishedTableReservationsAsync());
         }
 
         [HttpGet("reservation/table/{number}")]
@@ -103,6 +115,23 @@ namespace RestaurantAdministration.API.Controllers
             try
             {
                 return Ok(await _service.GetCurrentTableReservationAsync(number));
+            }
+            catch (Exception e)
+            {
+                return Conflict(e.Message);
+            }
+        }
+
+        [HttpPost("reservation/table")]
+        public async Task<ActionResult<TableReservationDto>> CreateCurrentTableReservation(CreateCurrentTableReservationDto dto)
+        {
+            if (dto == null)
+            {
+                return BadRequest("Reservation data must be set!");
+            }
+            try
+            {
+                return Ok(await _service.CreateCurrentTableReservationAsync(dto));
             }
             catch (Exception e)
             {

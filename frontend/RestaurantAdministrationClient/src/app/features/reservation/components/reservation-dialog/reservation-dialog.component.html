@@ -1,0 +1,28 @@
+<app-dialog [title]="title" [buttonText]="buttonText" [dialogClose]="reservation"
+    [disabled]="!reservation.numberOfSeats || !reservation.date || !reservation.hours || !reservation.name">
+
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="Name" [(ngModel)]="reservation.name" type="text">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Seats" [(ngModel)]="reservation.numberOfSeats" type="number">
+        </mat-form-field>
+    </div>
+    <div style="position: relative;">
+        <mat-form-field>
+            <input matInput placeholder="Date" [(ngModel)]="reservation.date">
+        </mat-form-field>
+        <div style="position: absolute; top: 18px; left: 150px; background: #ffffff; padding: 0px 5px;">
+            <input [owlDateTime]="dt1" placeholder="Date Time" [(ngModel)]="reservation.date" style="width: 0px; padding: 0px; border: 0px;">
+            <span [owlDateTimeTrigger]="dt1" style="cursor: pointer;"><mat-icon style="vertical-align: bottom;">event</mat-icon></span>
+            <owl-date-time #dt1></owl-date-time>
+        </div>
+
+        <mat-form-field>
+            <input matInput placeholder="Hours" [(ngModel)]="reservation.hours" type="number">
+        </mat-form-field>
+    </div>
+
+</app-dialog>

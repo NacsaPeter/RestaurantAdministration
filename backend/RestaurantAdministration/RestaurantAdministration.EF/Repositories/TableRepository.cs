@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RestaurantAdministration.Domain.Enums;
 using RestaurantAdministration.Domain.Models;
 using RestaurantAdministration.EF.Interfaces;
 using System;
@@ -113,14 +114,6 @@ namespace RestaurantAdministration.EF.Repositories
             return table;
         }
 
-        public async Task<IEnumerable<TableReservation>> GetTableReservationsAsync(string name)
-        {
-            return await _context.TableReservations
-                .Include(x => x.Table)
-                .Where(x => x.Name.ToLower().Contains(name.ToLower()))
-                .ToListAsync();
-        }
-
         public async Task<bool> DeleteTableReservationAsync(int reservationId)
         {
             var exisitingReservation = await _context.TableReservations
@@ -160,6 +153,80 @@ namespace RestaurantAdministration.EF.Repositories
             reservation.To = DateTime.Now;
             await _context.SaveChangesAsync();
             return true;
+        }
+
+        public async Task<IEnumerable<TableReservation>> GetUpcomingTableReservationsAsync()
+        {
+            return await _context.TableReservations
+                .Include(x => x.Table)
+                .Where(x => x.From > DateTime.Now)
+                .OrderBy(x => x.From)
+                .ToListAsync();
+        }
+
+        public async Task<TableReservationState> GetTableReservationStateAsync(Table table)
+        {
+            var reservation = await _context.TableReservations
+                .Where(x => x.TableId == table.Id && x.To > DateTime.Now)
+                .OrderBy(x => x.To)
+                .FirstOrDefaultAsync();
+
+            if (reservation == null)
+            {
+                return TableReservationState.Free;
+            }
+            else if (reservation.From <= DateTime.Now)
+            {
+                return TableReservationState.Busy;
+            }
+            else if (reservation.From <= DateTime.Now.AddHours(3))
+            {
+                return TableReservationState.Reserved;
+            }
+            
+            return TableReservationState.Free;
+        }
+
+        public async Task<IEnumerable<TableReservation>> GetFinishedTableReservationsAsync()
+        {
+            return await _context.TableReservations
+                .Include(x => x.Table)
+                .Where(x => x.To < DateTime.Now)
+                .OrderByDescending(x => x.To)
+                .ToListAsync();
+        }
+
+        public async Task<TableReservation> CreateCurrentTableReservationAsync(Table table, int hours)
+        {
+            DateTime to = DateTime.Now.AddHours(hours);
+
+            var reservation = await _context.TableReservations
+                .Where(x => x.TableId == table.Id && x.To > DateTime.Now)
+                .OrderBy(x => x.From)
+                .FirstOrDefaultAsync();
+
+            if (reservation == null || reservation.From > to)
+            {
+                var tableEntity = await _context.Tables
+                    .Where(x => x.Id == table.Id)
+                    .SingleOrDefaultAsync();
+
+                reservation = new TableReservation
+                {
+                    From = DateTime.Now,
+                    To = to,
+                    Name = "Unkown",
+                    Table = tableEntity
+                };
+            }
+            else
+            {
+                return null;
+            }
+
+            _context.TableReservations.Add(reservation);
+            await _context.SaveChangesAsync();
+            return reservation;
         }
     }
 }

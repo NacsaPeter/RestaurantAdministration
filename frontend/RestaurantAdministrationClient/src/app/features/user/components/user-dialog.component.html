@@ -1,0 +1,28 @@
+<app-dialog [title]="title" [buttonText]="buttonText" [dialogClose]="user"
+    [disabled]="!user.userName || !user.email || !user.password || !user.role">
+
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="Username" [(ngModel)]="user.userName" type="text" spellcheck="false">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Email" [(ngModel)]="user.email" type="email" spellcheck="false">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="Password" [(ngModel)]="user.password" type="password">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Role</mat-label>
+            <mat-select [(ngModel)]="user.role">
+                <mat-option [value]="'Admin'">Admin</mat-option>
+                <mat-option [value]="'Waiter'">Waiter</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+</app-dialog>

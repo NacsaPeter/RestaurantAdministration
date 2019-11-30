@@ -1,7 +1,7 @@
-<mat-card class="table-item">
+<mat-card class="table-item" [ngClass]="{ 'busy': isBusy, 'free': isFree, 'reserved': isReserved }">
     <div class="table-number">No. {{ table.number }}</div>
     <div class="table-seats">{{ table.numberOfSeats }} seats</div>
-    <div class="icons-container">
+    <div class="icons-container" *ngIf="hasIcons">
         <button mat-icon-button (click)="edit.emit()">
             <mat-icon>edit</mat-icon>
         </button>
