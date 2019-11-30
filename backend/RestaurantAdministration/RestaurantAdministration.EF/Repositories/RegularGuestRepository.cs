@@ -37,6 +37,11 @@ namespace RestaurantAdministration.EF.Repositories
             return guest;
         }
 
+        public async Task<IEnumerable<RegularGuest>> GetAllRegularGuestAsync()
+        {
+            return await _context.RegularGuests.ToListAsync();
+        }
+
         public async Task<IEnumerable<RegularGuest>> GetRegularGuestsAsync(string name)
         {
             return await _context.RegularGuests
