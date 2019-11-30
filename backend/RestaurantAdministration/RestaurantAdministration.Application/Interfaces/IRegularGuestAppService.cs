@@ -8,6 +8,7 @@ namespace RestaurantAdministration.Application.Interfaces
 {
     public interface IRegularGuestAppService
     {
+        Task<IEnumerable<RegularGuestDto>> GetAllRegularGuestAsync();
         Task<RegularGuestDto> CreateRegularGuestAsync(RegularGuestDto regularGuestDto);
         Task<IEnumerable<RegularGuestDto>> GetRegularGuestsAsync(string name);
     }

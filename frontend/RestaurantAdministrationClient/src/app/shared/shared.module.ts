@@ -14,7 +14,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { RemoveItemDialogComponent } from './components/remove-item/remove-item-dialog.component';
 import { FormsModule } from '@angular/forms';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatProgressSpinnerModule,
     MatTooltipModule,
     MatExpansionModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   exports: [
     CommonModule,
@@ -54,6 +58,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     DialogComponent,
     RemoveItemDialogComponent,
     MatExpansionModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   entryComponents: [
     RemoveItemDialogComponent,

@@ -1,0 +1,17 @@
+<app-dialog [title]="title" [buttonText]="buttonText" [dialogClose]="regularGuest">
+
+    <mat-form-field>
+        <input matInput placeholder="Name" [(ngModel)]="regularGuest.name" type="text">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="regularGuest.birthDay">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Address" [(ngModel)]="regularGuest.address" type="text">
+    </mat-form-field>
+
+</app-dialog>

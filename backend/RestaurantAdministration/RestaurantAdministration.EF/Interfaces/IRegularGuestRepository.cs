@@ -8,6 +8,7 @@ namespace RestaurantAdministration.EF.Interfaces
 {
     public interface IRegularGuestRepository
     {
+        Task<IEnumerable<RegularGuest>> GetAllRegularGuestAsync();
         Task<RegularGuest> AddRegularGuestAsync(RegularGuest guest);
         Task<IEnumerable<RegularGuest>> GetRegularGuestsAsync(string name);
     }

@@ -20,6 +20,12 @@ namespace RestaurantAdministration.API.Controllers
             _service = service;
         }
 
+        [HttpGet()]
+        public async Task<ActionResult<IEnumerable<RegularGuestDto>>> GetAllRegularGuest()
+        {
+            return Ok(await _service.GetAllRegularGuestAsync());
+        }
+
         [HttpGet("{name}")]
         public async Task<ActionResult<IEnumerable<RegularGuestDto>>> GetRegularGuests(string name)
         {

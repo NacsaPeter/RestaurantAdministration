@@ -31,6 +31,12 @@ namespace RestaurantAdministration.Application.AppServices
             return new RegularGuestDto(created);
         }
 
+        public async Task<IEnumerable<RegularGuestDto>> GetAllRegularGuestAsync()
+        {
+            IEnumerable<RegularGuest> regularGuests = await _repository.GetAllRegularGuestAsync();
+            return regularGuests.Select(rg => new RegularGuestDto(rg));
+        }
+
         public async Task<IEnumerable<RegularGuestDto>> GetRegularGuestsAsync(string name)
         {
             var guests = await _repository.GetRegularGuestsAsync(name);
