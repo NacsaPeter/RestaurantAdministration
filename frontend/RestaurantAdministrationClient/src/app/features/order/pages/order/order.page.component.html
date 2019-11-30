@@ -1,0 +1,15 @@
+<div *ngIf="isLoading" class="spinner-container">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="order-container">
+    <mat-card class="table-item add-table" (click)="navigateOrders()">
+        <mat-icon class="add-icon">format_list_bulleted</mat-icon>
+        <div class="add-text">Orders</div>
+    </mat-card>
+    <mat-card class="table-item add-table" (click)="navigateDelivery()">
+        <mat-icon class="add-icon">drive_eta</mat-icon>
+        <div class="add-text">Delivery</div>
+    </mat-card>
+    <app-table-item *ngFor="let table of tables" [table]="table" [hasIcons]="false"
+        [ngClass]="{ 'free': table.state !== 'Busy' }" (click)="navigate(table)"></app-table-item>
+</div>

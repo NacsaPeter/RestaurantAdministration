@@ -159,7 +159,7 @@ namespace RestaurantAdministration.EF.Repositories
         {
             return await _context.TableReservations
                 .Include(x => x.Table)
-                .Where(x => x.From > DateTime.Now)
+                .Where(x => x.To > DateTime.Now)
                 .OrderBy(x => x.From)
                 .ToListAsync();
         }
@@ -227,6 +227,29 @@ namespace RestaurantAdministration.EF.Repositories
             _context.TableReservations.Add(reservation);
             await _context.SaveChangesAsync();
             return reservation;
+        }
+
+        public async Task<bool> GetTableReservationHasOrderAsync(Table table)
+        {
+            var reservation = await _context.TableReservations
+                .Where(x => x.TableId == table.Id && x.To > DateTime.Now && x.From <= DateTime.Now)
+                .SingleOrDefaultAsync();
+
+            if (reservation == null)
+            {
+                return false;
+            }
+
+            var order = await _context.Orders
+                .Where(x => x.TableReservationId == reservation.Id)
+                .SingleOrDefaultAsync();
+
+            if (order == null)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

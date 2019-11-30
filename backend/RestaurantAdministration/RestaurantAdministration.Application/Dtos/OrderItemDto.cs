@@ -11,6 +11,7 @@ namespace RestaurantAdministration.Application.Dtos
         public int NumberOfItems { get; set; }
         public string Notes { get; set; }
         public int MenuItemId { get; set; }
+        public string MenuItemName { get; set; }
 
         public OrderItemDto() { }
 

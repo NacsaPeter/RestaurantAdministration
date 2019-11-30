@@ -22,7 +22,7 @@ namespace RestaurantAdministration.EF.Repositories
         {
             var existingOrder = await _context.Orders
                 .Include(x => x.TableReservation)
-                .Where(x => x.TableReservationId == order.TableReservationId)
+                .Where(x => !x.IsDelivery && x.TableReservationId == order.TableReservationId)
                 .SingleOrDefaultAsync();
 
             if (existingOrder != null)
@@ -34,6 +34,14 @@ namespace RestaurantAdministration.EF.Repositories
             await _context.SaveChangesAsync();
 
             return order;
+        }
+
+        public async Task<string> GetMenuItemNameById(int menuItemId)
+        {
+            return await _context.MenuItems
+                .Where(x => x.Id == menuItemId)
+                .Select(x => x.Name)
+                .SingleOrDefaultAsync();
         }
 
         public async Task<Order> GetOrderAsync(int reservationId)
@@ -52,6 +60,16 @@ namespace RestaurantAdministration.EF.Repositories
                 .Include(x => x.OrderItems)
                 .Where(x => x.Id == id)
                 .SingleOrDefaultAsync();
+        }
+
+        public async Task<IEnumerable<Order>> GetOrdersAsync()
+        {
+            return await _context.Orders
+                .Include(x => x.TableReservation)
+                    .ThenInclude(y => y.Table)
+                .Include(x => x.OrderItems)
+                .OrderByDescending(x => x.Date)
+                .ToListAsync();
         }
 
         public async Task<Order> UpdateOrderAsync(Order order)
@@ -85,11 +103,15 @@ namespace RestaurantAdministration.EF.Repositories
             {
                 if (item.Id == 0)
                 {
+                    item.OrderId = order.Id;
                     _context.OrderItems.Add(item);
                 }
                 else
                 {
-                    _context.OrderItems.Update(item);
+                    var oldItem = old.OrderItems.Where(x => x.Id == item.Id).SingleOrDefault();
+                    oldItem.Notes = item.Notes;
+                    oldItem.NumberOfItems = item.NumberOfItems;
+                    // _context.OrderItems.Update(oldItem);
                 }
             }
 

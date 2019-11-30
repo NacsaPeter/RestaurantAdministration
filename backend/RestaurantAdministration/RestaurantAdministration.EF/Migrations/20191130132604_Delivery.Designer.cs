@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestaurantAdministration.EF;
 
 namespace RestaurantAdministration.EF.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191130132604_Delivery")]
+    partial class Delivery
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -296,9 +298,6 @@ namespace RestaurantAdministration.EF.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("DeliveryAddress")
                         .HasColumnType("nvarchar(max)");
 
@@ -536,14 +535,14 @@ namespace RestaurantAdministration.EF.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "56f21901-06b9-4383-8737-a1847652478d",
+                            ConcurrencyStamp = "63b1c77c-4206-4e82-bdf8-12e4b2850a51",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = 2,
-                            ConcurrencyStamp = "d76b1987-270d-4e22-bcd5-5ecc65bc2667",
+                            ConcurrencyStamp = "829b223b-c680-4992-baa3-e6e1a7f3e5d6",
                             Name = "Waiter",
                             NormalizedName = "WAITER"
                         });

@@ -1,0 +1,84 @@
+.order-container {
+    app-table-item:hover {
+        cursor: pointer;
+        opacity: 0.9;
+    }
+
+    app-table-item:active {
+        cursor: pointer;
+        opacity: 1;
+    }
+
+    app-table-item.free {
+        cursor: unset;
+        opacity: 0.3;
+    }
+
+    app-table-item:not(.free):hover mat-card {
+        background: $medium-green;
+        color: #ffffff;
+    }
+}
+
+.edit-order-container {
+    .mat-form-field {
+        margin-right: 50px;
+    }
+
+    mat-card {
+        margin-left: calc(45% - 500px);
+        width: 1000px;
+        padding-left: 50px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        color: $dark-green;
+    }
+
+    .edit-container-title {
+        margin-bottom: 50px;
+        font-size: 30px;
+    }
+
+    .order-buttons-container {
+        margin-top: 50px;
+        height: 60px;
+        position: relative;
+
+        .save-button {
+            position: absolute;
+            right: 150px;
+            width: 100px;
+            box-shadow: none;
+            border-radius: 120px;
+            background: $medium-green;
+            color: #ffffff;
+        }
+
+        .cancel-button {
+            position: absolute;
+            right: 50px;
+            width: 100px;
+            border-radius: 120px;
+        }
+
+        .mat-raised-button[disabled] {
+            background: rgba($medium-green, 0.3);
+        }
+    }
+
+    .mat-expansion-panel, .mat-expansion-panel-header {
+        background: $light-green;
+    }
+
+    tr:hover td {
+        background: $medium-green;
+        cursor: pointer;
+        color: #ffffff;
+    }
+
+    tr:active td {
+        background: rgba($medium-green, 0.9);
+        cursor: pointer;
+        color: #ffffff;
+    }
+}

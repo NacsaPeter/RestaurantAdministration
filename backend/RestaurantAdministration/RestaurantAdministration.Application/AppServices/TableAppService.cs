@@ -96,7 +96,8 @@ namespace RestaurantAdministration.Application.AppServices
             foreach (var table in tables)
             {
                 var state = await _repository.GetTableReservationStateAsync(table);
-                tableStates.Add(new TableStateDto(table, state));
+                var hasOrder = await _repository.GetTableReservationHasOrderAsync(table);
+                tableStates.Add(new TableStateDto(table, state, hasOrder));
             }
             return tableStates;
         }

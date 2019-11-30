@@ -66,5 +66,11 @@ namespace RestaurantAdministration.API.Controllers
                 return Conflict(e.Message);
             }
         }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<OrderDto>>> GetOrders()
+        {
+            return Ok(await _service.GetOrdersAsync());
+        }
     }
 }

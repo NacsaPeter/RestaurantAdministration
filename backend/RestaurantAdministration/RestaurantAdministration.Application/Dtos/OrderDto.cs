@@ -10,8 +10,12 @@ namespace RestaurantAdministration.Application.Dtos
     {
         public int Id { get; set; }
         public int? TableReservationId { get; set; }
+        public TableReservationDto TableReservation { get; set; }
         public bool IsDelivery { get; set; }
         public string Address { get; set; }
+        public string Phone { get; set; }
+        public string Name { get; set; }
+        public DateTime Date { get; set; }
         public List<OrderItemDto> OrderItems { get; set; }
 
         public OrderDto() { }
@@ -20,8 +24,11 @@ namespace RestaurantAdministration.Application.Dtos
         {
             Id = order.Id;
             TableReservationId = order.TableReservationId;
-            IsDelivery = IsDelivery;
+            IsDelivery = order.IsDelivery;
             Address = order.DeliveryAddress;
+            Phone = order.DeliveryPhone;
+            Name = order.DeliveryName;
+            Date = order.Date;
             OrderItems = order.OrderItems.Select(x => new OrderItemDto(x)).ToList();
         }
 
@@ -33,6 +40,9 @@ namespace RestaurantAdministration.Application.Dtos
                 TableReservationId = TableReservationId,
                 IsDelivery = IsDelivery,
                 DeliveryAddress = Address,
+                DeliveryName = Name,
+                DeliveryPhone = Phone,
+                Date = Date,
                 OrderItems = OrderItems.Select(x => x.ToEntity()).ToList()
             };
         }

@@ -9,7 +9,10 @@ namespace RestaurantAdministration.Domain.Models
         public int Id { get; set; }
         public bool IsDelivery { get; set; }
         public string DeliveryAddress { get; set; }
+        public string DeliveryName { get; set; }
+        public string DeliveryPhone { get; set; }
         public DateTime? PaymentTime { get; set; }
+        public DateTime Date { get; set; }
 
         public int? TableReservationId { get; set; }
         public TableReservation TableReservation { get; set; }

@@ -17,6 +17,7 @@ namespace RestaurantAdministration.EF.Interfaces
         Task<TableReservation> CreateCurrentTableReservationAsync(Table table, int hours);
         Task<IEnumerable<TableReservation>> GetUpcomingTableReservationsAsync();
         Task<TableReservationState> GetTableReservationStateAsync(Table table);
+        Task<bool> GetTableReservationHasOrderAsync(Table table);
         Task<IEnumerable<TableReservation>> GetFinishedTableReservationsAsync();
         Task<TableReservation> GetCurrentTableReservationAsync(int number);
         Task<bool> DeleteTableReservationAsync(int reservationId);
