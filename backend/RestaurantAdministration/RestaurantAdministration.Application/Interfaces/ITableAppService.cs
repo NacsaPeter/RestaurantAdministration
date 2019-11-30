@@ -13,7 +13,10 @@ namespace RestaurantAdministration.Application.Interfaces
         Task DeleteTableAsync(int tableId);
         Task<IEnumerable<TableDto>> GetTablesAsync();
         Task<TableReservationDto> CreateTableReservationAsync(CreateTableReservationDto dto);
-        Task<IEnumerable<TableReservationDto>> GetTableReservationsAsync(string name);
+        Task<TableReservationDto> CreateCurrentTableReservationAsync(CreateCurrentTableReservationDto dto);
+        Task<IEnumerable<TableReservationDto>> GetUpcomingTableReservationsAsync();
+        Task<IEnumerable<TableStateDto>> GetCurrentTableReservationsAsync();
+        Task<IEnumerable<TableReservationDto>> GetFinishedTableReservationsAsync();
         Task<TableReservationDto> GetCurrentTableReservationAsync(int number);
         Task DeleteTableReservationAsync(int reservationId);
         Task FinishTableReservationAsync(int reservationId);

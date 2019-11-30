@@ -1,0 +1,4 @@
+<div class="reservation-container">
+    <app-table-item *ngFor="let table of tables" [table]="table" [hasIcons]="false" [isBusy]="table.state === 'Busy'"
+        [isFree]="table.state === 'Free'" [isReserved]="table.state === 'Reserved'" (click)="reservationCardClick.emit(table)"></app-table-item>
+</div>

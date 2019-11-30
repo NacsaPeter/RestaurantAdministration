@@ -19,6 +19,17 @@ namespace RestaurantAdministration.Application.AppServices
             _repository = repository;
         }
 
+        public async Task<TableReservationDto> CreateCurrentTableReservationAsync(CreateCurrentTableReservationDto dto)
+        {
+            Table table = dto.Table.ToEntity();
+            var created = await _repository.CreateCurrentTableReservationAsync(table, dto.Hours);
+            if (created == null)
+            {
+                throw new Exception("Table is not available.");
+            }
+            return new TableReservationDto(created);
+        }
+
         public async Task<TableDto> CreateTableAsync(TableDto tableDto)
         {
             Table table = tableDto.ToEntity();
@@ -78,9 +89,21 @@ namespace RestaurantAdministration.Application.AppServices
             return new TableReservationDto(reservation);
         }
 
-        public async Task<IEnumerable<TableReservationDto>> GetTableReservationsAsync(string name)
+        public async Task<IEnumerable<TableStateDto>> GetCurrentTableReservationsAsync()
         {
-            var reservations = await _repository.GetTableReservationsAsync(name);
+            var tables = await _repository.GetTablesAsync();
+            var tableStates = new List<TableStateDto>();
+            foreach (var table in tables)
+            {
+                var state = await _repository.GetTableReservationStateAsync(table);
+                tableStates.Add(new TableStateDto(table, state));
+            }
+            return tableStates;
+        }
+
+        public async Task<IEnumerable<TableReservationDto>> GetFinishedTableReservationsAsync()
+        {
+            var reservations = await _repository.GetFinishedTableReservationsAsync();
             return reservations.Select(r => new TableReservationDto(r));
         }
 
@@ -88,6 +111,12 @@ namespace RestaurantAdministration.Application.AppServices
         {
             var tables = await _repository.GetTablesAsync();
             return tables.Select(t => new TableDto(t));
+        }
+
+        public async Task<IEnumerable<TableReservationDto>> GetUpcomingTableReservationsAsync()
+        {
+            var reservations = await _repository.GetUpcomingTableReservationsAsync();
+            return reservations.Select(r => new TableReservationDto(r));
         }
 
         public async Task<TableDto> UpdateTableAsync(TableDto tableDto)
