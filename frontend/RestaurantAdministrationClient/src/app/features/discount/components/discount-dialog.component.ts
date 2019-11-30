@@ -20,7 +20,7 @@ export class DiscountDialogComponent {
             code: null,
             value: null,
             type: null,
-            isUsed: null
+            isUsed: false
         };
     }
 }
