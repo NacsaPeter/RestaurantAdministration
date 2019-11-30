@@ -41,7 +41,7 @@ namespace RestaurantAdministration.EF.Repositories
                 .Where(c => c.Id == menuItem.CategoryId)
                 .SingleOrDefaultAsync();
 
-            if(existingCategory != null)
+            if(existingCategory == null)
             {
                 return null;
             }

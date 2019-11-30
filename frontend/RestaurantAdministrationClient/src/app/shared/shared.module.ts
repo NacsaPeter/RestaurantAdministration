@@ -18,6 +18,7 @@ import { RemoveItemDialogComponent } from './components/remove-item/remove-item-
 import { FormsModule } from '@angular/forms';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { TableItemComponent } from './components/table-item/table-item.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { TableItemComponent } from './components/table-item/table-item.component
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     MatSelectModule,
+    MatExpansionModule,
   ],
   exports: [
     CommonModule,
@@ -65,6 +67,7 @@ import { TableItemComponent } from './components/table-item/table-item.component
     OwlNativeDateTimeModule,
     TableItemComponent,
     MatSelectModule,
+    MatExpansionModule,
   ],
   entryComponents: [
     RemoveItemDialogComponent,

@@ -1,0 +1,25 @@
+.menu-container{
+    .panel-header{
+        background: $medium-green; 
+        
+        .panel-title{
+            color: #ffffff;
+            align-items: center;
+
+            .add-icon{
+                margin-right: 10px;
+            }
+
+            &:hover {
+                color:#052;
+            }
+        }
+    }
+
+    .mat-expanded{
+        background: #fff;
+        .panel-title{
+            color:#052;
+        }
+    }
+}
