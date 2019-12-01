@@ -58,7 +58,7 @@ namespace RestaurantAdministration.API.Controllers
         }
 
         [HttpPost("payment")]
-        public ActionResult<PaymentResultDto> GeneratePayment(GeneratePaymentDto generatePaymentDto)
+        public async Task<ActionResult<PaymentResultDto>> GeneratePayment(GeneratePaymentDto generatePaymentDto)
         {
             if (generatePaymentDto == null)
             {
@@ -66,7 +66,7 @@ namespace RestaurantAdministration.API.Controllers
             }
             try
             {
-                return Ok(_service.GeneratePayment(generatePaymentDto));
+                return Ok(await _service.GeneratePaymentAsync(generatePaymentDto));
             }
             catch (Exception e)
             {

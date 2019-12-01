@@ -10,5 +10,6 @@ namespace RestaurantAdministration.EF.Interfaces
     {
         Task<Invoice> GenerateInvoiceAsync(Invoice invoice);
         Task<bool> PayAsync(Order order);
+        Task<bool> SetDiscountUsedAsync(Discount discount);
     }
 }

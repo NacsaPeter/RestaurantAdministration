@@ -10,6 +10,6 @@ namespace RestaurantAdministration.Application.Interfaces
     {
         Task<InvoiceDto> GenerateInvoiceAsync(GenerateInvoiceDto generateInvoiceDto);
         Task PayAsync(OrderDto orderDto);
-        PaymentResultDto GeneratePayment(GeneratePaymentDto generatePaymentDto);
+        Task<PaymentResultDto> GeneratePaymentAsync(GeneratePaymentDto generatePaymentDto);
     }
 }

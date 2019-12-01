@@ -57,7 +57,7 @@ namespace RestaurantAdministration.Application.AppServices
             return new InvoiceDto(created);
         }
 
-        public PaymentResultDto GeneratePayment(GeneratePaymentDto generatePaymentDto)
+        public async Task<PaymentResultDto> GeneratePaymentAsync(GeneratePaymentDto generatePaymentDto)
         {
             PaymentResultDto paymentResultDto = new PaymentResultDto
             {
@@ -71,8 +71,7 @@ namespace RestaurantAdministration.Application.AppServices
             int regularGuestDiscount = 0;
             if (generatePaymentDto.RegularGuest != null)
             {
-                regularGuestDiscount = paymentResultDto.FullPrice 
-                    - paymentResultDto.FullPrice * (generatePaymentDto.RegularGuest.Discount / 100);
+                regularGuestDiscount = (int)(paymentResultDto.FullPrice * (generatePaymentDto.RegularGuest.Discount / 100.00));
             }
 
             int discountDiscount = 0;
@@ -84,9 +83,11 @@ namespace RestaurantAdministration.Application.AppServices
                 }
                 else
                 {
-                    discountDiscount = paymentResultDto.FullPrice
-                        - paymentResultDto.FullPrice * (generatePaymentDto.Discount.Value / 100);
+                    discountDiscount = (int)(paymentResultDto.FullPrice * (generatePaymentDto.Discount.Value / 100.00));
                 }
+
+                bool success = await _repository
+                    .SetDiscountUsedAsync(generatePaymentDto.Discount.ToEntity());
             }
 
             paymentResultDto.FullDiscount = regularGuestDiscount + discountDiscount;
@@ -95,6 +96,7 @@ namespace RestaurantAdministration.Application.AppServices
             {
                 paymentResultDto.Result = 0;
             }
+
             return paymentResultDto;
         }
 

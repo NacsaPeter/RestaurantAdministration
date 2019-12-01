@@ -40,5 +40,21 @@ namespace RestaurantAdministration.EF.Repositories
             await _context.SaveChangesAsync();
             return true;
         }
+
+        public async Task<bool> SetDiscountUsedAsync(Discount discount)
+        {
+            var entity = await _context.Discounts
+                .Where(x => x.Id == discount.Id)
+                .SingleOrDefaultAsync();
+
+            if (entity == null || entity.IsUsed == true)
+            {
+                return false;
+            }
+
+            entity.IsUsed = true;
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }

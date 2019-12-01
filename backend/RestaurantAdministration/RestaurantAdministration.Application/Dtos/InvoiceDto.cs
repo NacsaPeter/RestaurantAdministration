@@ -45,6 +45,7 @@ namespace RestaurantAdministration.Application.Dtos
             BillToStreetAddress = invoice.BillToStreetAddress;
             BillToCityCountryZIP = invoice.BillToCityCountryZIP;
             BillToPhone = invoice.BillToPhone;
+            Discount = invoice.Discount;
 
             InvoiceItems = invoice.InvoiceItems
                 .Select(x => new InvoiceItemDto(x))
@@ -59,6 +60,7 @@ namespace RestaurantAdministration.Application.Dtos
                 VATSum += item.VatContent;
                 PriceSum += item.Amount;
             }
+            PriceSum -= Discount;
         }
     }
 }
