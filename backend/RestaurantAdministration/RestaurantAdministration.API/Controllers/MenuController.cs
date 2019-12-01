@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAdministration.Application.Dtos;
@@ -11,6 +12,7 @@ namespace RestaurantAdministration.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     public class MenuController : ControllerBase
     {
         private readonly IMenuAppService _service;
@@ -41,6 +43,7 @@ namespace RestaurantAdministration.API.Controllers
         }
 
         [HttpPost("category")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<CategoryDto>> CreateCategory([FromBody] CategoryDto categoryDto)
         {
             if (categoryDto == null)
@@ -59,6 +62,7 @@ namespace RestaurantAdministration.API.Controllers
         }
 
         [HttpPost("menuitem")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<MenuItemDto>> CreateMenuItem([FromBody] MenuItemDto menuItemDto)
         {
             if (menuItemDto == null)
@@ -77,6 +81,7 @@ namespace RestaurantAdministration.API.Controllers
         }
 
         [HttpPut("menuitem")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<MenuItemDto>> UpdateMenuItem([FromBody] MenuItemDto menuItemDto)
         {
             try
@@ -90,6 +95,7 @@ namespace RestaurantAdministration.API.Controllers
         }
 
         [HttpDelete("menuitem/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteMenuItem(int id)
         {
             try

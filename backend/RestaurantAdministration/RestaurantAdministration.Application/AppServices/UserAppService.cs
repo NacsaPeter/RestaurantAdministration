@@ -66,9 +66,9 @@ namespace RestaurantAdministration.Application.AppServices
             var claims = new[]
                 {
                     new Claim("userName", user.UserName),
-                    new Claim(ClaimTypes.Email, user.Email),
+                    new Claim("email", user.Email),
                     new Claim("userId", user.Id.ToString()),
-                    new Claim(ClaimTypes.Role, role)
+                    new Claim("role", role)
                 };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("kYp3s6v9y$B?E(H+MbQeThWmZq4t7w!z%C*F)J@NcRfUjXn2r5u8x/A?D(G+KaPd"));

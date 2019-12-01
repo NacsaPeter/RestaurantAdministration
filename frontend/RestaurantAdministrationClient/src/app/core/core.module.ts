@@ -7,6 +7,11 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { environment } from 'src/environments/environment';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin.guard';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
@@ -22,6 +27,14 @@ export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
     CoreRoutingModule,
   ],
   providers: [
+    AuthService,
+    AuthGuard,
+    AdminGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
     { provide: API_BASE_URL, useValue: environment.apiBaseUrl },
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2000 }}
   ],

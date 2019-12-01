@@ -241,7 +241,7 @@ namespace RestaurantAdministration.EF.Repositories
             }
 
             var order = await _context.Orders
-                .Where(x => x.TableReservationId == reservation.Id)
+                .Where(x => x.TableReservationId == reservation.Id && x.PaymentTime == null)
                 .SingleOrDefaultAsync();
 
             if (order == null)

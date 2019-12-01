@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAdministration.Application.Dtos;
@@ -22,6 +23,7 @@ namespace RestaurantAdministration.API.Controllers
         }
 
         [HttpPost("signup")]
+        [Authorize(Roles = "Admin", AuthenticationSchemes = "Bearer")]
         public async Task<ActionResult> CreateUser([FromBody]RegisterUserDto user)
         {
             var createdUser = await _service.Register(user);
@@ -51,12 +53,14 @@ namespace RestaurantAdministration.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin", AuthenticationSchemes = "Bearer")]
         public async Task<ActionResult<IEnumerable<UserDto>>> GetUsers()
         {
             return Ok(await _service.GetUsersAsync());
         }
 
         [HttpDelete("{userId}")]
+        [Authorize(Roles = "Admin", AuthenticationSchemes = "Bearer")]
         public async Task<ActionResult> DeleteUser(int userId)
         {
             try

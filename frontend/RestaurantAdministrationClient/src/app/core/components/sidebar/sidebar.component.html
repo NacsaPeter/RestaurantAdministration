@@ -1,11 +1,11 @@
 <div class="logo-container">
-    <img [src]="'assets/ra.png'" width="220px" class="logo" (click)="navigate('/')" />
+    <img [src]="'assets/ra.png'" width="220px" class="logo" />
 </div>
-<div class="navigation-item" [ngClass]="{ 'current' : isTable }" (click)="navigate('/table')">
+<div class="navigation-item" [ngClass]="{ 'current' : isTable }" (click)="navigate('/table')" *ngIf="isAdmin">
     <mat-icon>deck</mat-icon>
     <div class="navigation-text">Tables</div>
 </div>
-<div class="navigation-item" [ngClass]="{ 'current' : isMenu }" (click)="navigate('/menu')">
+<div class="navigation-item" [ngClass]="{ 'current' : isMenu }" (click)="navigate('/menu')" *ngIf="isAdmin">
     <mat-icon>fastfood</mat-icon>
     <div class="navigation-text">Menu</div>
 </div>
@@ -17,11 +17,11 @@
     <mat-icon>restaurant</mat-icon>
     <div class="navigation-text">Order</div>
 </div>
-<div class="navigation-item" [ngClass]="{ 'current' : isUser }" (click)="navigate('/user')">
+<div class="navigation-item" [ngClass]="{ 'current' : isUser }" (click)="navigate('/user')" *ngIf="isAdmin">
     <mat-icon>perm_identity</mat-icon>
     <div class="navigation-text">Users</div>
 </div>
-<div class="navigation-item" [ngClass]="{ 'current' : isDiscount }" (click)="navigate('/discount')">
+<div class="navigation-item" [ngClass]="{ 'current' : isDiscount }" (click)="navigate('/discount')" *ngIf="isAdmin">
     <mat-icon>trending_down</mat-icon>
     <div class="navigation-text">Discount</div>
 </div>
@@ -32,4 +32,8 @@
 <div class="navigation-item" [ngClass]="{ 'current' : isFeedback }" (click)="navigate('/statistics')">
     <mat-icon>grade</mat-icon>
     <div class="navigation-text">Feedback</div>
+</div>
+<div class="navigation-item" (click)="logout()">
+    <mat-icon>power_settings_new</mat-icon>
+    <div class="navigation-text">Log out</div>
 </div>

@@ -61,6 +61,7 @@ namespace RestaurantAdministration.API
             services.AddTransient<ITableRepository, TableRepository>();
 
             services.AddIdentity<User, UserRole>()
+                .AddRoles<UserRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 

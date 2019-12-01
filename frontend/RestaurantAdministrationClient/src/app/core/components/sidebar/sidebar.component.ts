@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-sidebar',
     templateUrl: './sidebar.component.html'
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
 
     isDiscount: boolean;
     isFeedback: boolean;
@@ -15,9 +17,17 @@ export class SidebarComponent {
     isReservation: boolean;
     isTable: boolean;
     isUser: boolean;
+    isAdmin: boolean;
+
+    ngOnInit() {
+        this.authService.currentUser$.pipe(
+            tap(res => this.isAdmin = (res && res.role === 'Admin'))
+        ).subscribe();
+    }
 
     constructor(
-        private router: Router
+        private router: Router,
+        private authService: AuthService,
     ) {
         const url = this.router.url;
         if (url.match('/discount')) {
@@ -41,6 +51,10 @@ export class SidebarComponent {
 
     navigate(url: string) {
         this.router.navigateByUrl(url);
+    }
+
+    logout() {
+        this.authService.logout();
     }
 
 }

@@ -19,6 +19,7 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 @import 'feedback';
 @import 'menu';
 @import 'order';
+@import 'login';
 
 html {
     height: 100%;

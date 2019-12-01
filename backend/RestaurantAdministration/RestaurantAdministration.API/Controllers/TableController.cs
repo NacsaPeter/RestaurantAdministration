@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAdministration.Application.Dtos;
@@ -11,6 +12,7 @@ namespace RestaurantAdministration.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     public class TableController : ControllerBase
     {
         private readonly ITableAppService _service;
@@ -21,6 +23,7 @@ namespace RestaurantAdministration.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<TableDto>> CreateTable([FromBody] TableDto tableDto)
         {
             if (tableDto == null)
@@ -38,6 +41,7 @@ namespace RestaurantAdministration.API.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<TableDto>> UpdateTable([FromBody] TableDto tableDto)
         {
             if (tableDto == null)
@@ -55,6 +59,7 @@ namespace RestaurantAdministration.API.Controllers
         }
 
         [HttpDelete("{tableId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteTable(int tableId)
         {
             try

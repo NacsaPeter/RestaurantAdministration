@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAdministration.Application.Dtos;
@@ -11,6 +12,7 @@ namespace RestaurantAdministration.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     public class DiscountController : ControllerBase
     {
         private readonly IDiscountAppService _service;
@@ -21,12 +23,14 @@ namespace RestaurantAdministration.API.Controllers
         }
 
         [HttpGet("discounts")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<DiscountDto>>> GetAllDiscount()
         {
             return Ok(await _service.GetAllDiscountAsync());
         }
 
         [HttpPost("discount")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<DiscountDto>> CreateDiscount([FromBody] DiscountDto discountDto)
         {
             if(discountDto == null)
@@ -45,6 +49,7 @@ namespace RestaurantAdministration.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteDiscount(int id)
         {
             try
