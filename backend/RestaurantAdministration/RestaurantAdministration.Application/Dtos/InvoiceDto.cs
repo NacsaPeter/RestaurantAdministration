@@ -20,12 +20,12 @@ namespace RestaurantAdministration.Application.Dtos
         public string BillToStreetAddress { get; set; }
         public string BillToCityCountryZIP { get; set; }
         public string BillToPhone { get; set; }
-        public string BillToEmail { get; set; }
 
         // Nettó összesen
         public int NetSum { get; set; }
         // Áfatartalom összesen
         public int VATSum { get; set; }
+        public int Discount { get; set; }
         // Végösszeg
         public int PriceSum { get; set; }
 
@@ -45,7 +45,6 @@ namespace RestaurantAdministration.Application.Dtos
             BillToStreetAddress = invoice.BillToStreetAddress;
             BillToCityCountryZIP = invoice.BillToCityCountryZIP;
             BillToPhone = invoice.BillToPhone;
-            BillToEmail = invoice.BillToEmail;
 
             InvoiceItems = invoice.InvoiceItems
                 .Select(x => new InvoiceItemDto(x))

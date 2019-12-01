@@ -41,4 +41,16 @@ export class OrderService {
         return this.http.get(`${this.baseUrl}/api/order`);
     }
 
+    getOrderById(orderId: number): Observable<any> {
+        return this.http.get(`${this.baseUrl}/api/order/order/${orderId}`);
+    }
+
+    getDiscountByCode(code: string): Observable<any> {
+        return this.http.get(`${this.baseUrl}/api/discount/${code}`);
+    }
+
+    getRegularGuests(name: string): Observable<any> {
+        return this.http.get(`${this.baseUrl}/api/regularguest/${name}`);
+    }
+
 }

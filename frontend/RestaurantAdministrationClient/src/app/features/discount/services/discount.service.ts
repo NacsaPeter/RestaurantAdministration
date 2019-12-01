@@ -21,7 +21,7 @@ export class DiscountService {
     }
 
     removeDiscount(discount: IDiscountViewModel): Observable<any> {
-        console.log(`${this.baseUrl}​/api​/discount​/discount​/${discount.id}`);
-        return this.http.delete(`${this.baseUrl}​/api​/discount​/discount​/${discount.id}`);
+        console.log(`${this.baseUrl}​/api​/discount​/${discount.id}`);
+        return this.http.delete(`${this.baseUrl}​/api​/discount​/${discount.id}`);
     }
 }

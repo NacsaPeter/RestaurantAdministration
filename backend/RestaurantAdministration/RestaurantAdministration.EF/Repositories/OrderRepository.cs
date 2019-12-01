@@ -36,11 +36,10 @@ namespace RestaurantAdministration.EF.Repositories
             return order;
         }
 
-        public async Task<string> GetMenuItemNameById(int menuItemId)
+        public async Task<MenuItem> GetMenuItemById(int menuItemId)
         {
             return await _context.MenuItems
                 .Where(x => x.Id == menuItemId)
-                .Select(x => x.Name)
                 .SingleOrDefaultAsync();
         }
 
@@ -55,11 +54,21 @@ namespace RestaurantAdministration.EF.Repositories
 
         public async Task<Order> GetOrderByIdAsync(int id)
         {
-            return await _context.Orders
+            var order =  await _context.Orders
                 .Include(x => x.TableReservation)
+                    .ThenInclude(y => y.Table)
                 .Include(x => x.OrderItems)
                 .Where(x => x.Id == id)
                 .SingleOrDefaultAsync();
+
+            foreach (var item in order.OrderItems)
+            {
+                item.MenuItem = await _context.MenuItems
+                    .Where(x => x.Id == item.MenuItemId)
+                    .SingleOrDefaultAsync();
+            }
+
+            return order;
         }
 
         public async Task<IEnumerable<Order>> GetOrdersAsync()

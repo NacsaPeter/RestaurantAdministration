@@ -14,6 +14,7 @@ namespace RestaurantAdministration.Application.Dtos
         public string BillToCountry { get; set; }
         public string BillToZIP { get; set; }
         public string BillToPhone { get; set; }
-        public string BillToEmail { get; set; }
+
+        public int Discount { get; set; }
     }
 }

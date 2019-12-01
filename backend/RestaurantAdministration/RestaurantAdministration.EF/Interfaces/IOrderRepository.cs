@@ -12,7 +12,7 @@ namespace RestaurantAdministration.EF.Interfaces
         Task<Order> GetOrderAsync(int reservationId);
         Task<Order> GetOrderByIdAsync(int id);
         Task<Order> UpdateOrderAsync(Order order);
-        Task<string> GetMenuItemNameById(int menuItemId);
+        Task<MenuItem> GetMenuItemById(int menuItemId);
         Task<IEnumerable<Order>> GetOrdersAsync();
     }
 }

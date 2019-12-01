@@ -32,6 +32,22 @@
             </td>
         </ng-container>
 
+        <ng-container matColumnDef="isPaid">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Is Paid </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-icon>{{ element.isPaid ? 'check_box' : 'check_box_outline_blank' }}</mat-icon>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="pay">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Pay </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button *ngIf="!element.isPaid" (click)="pay(element)">
+                    <mat-icon>payment</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>

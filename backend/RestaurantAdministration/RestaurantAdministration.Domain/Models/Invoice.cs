@@ -19,7 +19,9 @@ namespace RestaurantAdministration.Domain.Models
         public string BillToCityCountryZIP { get; set; }
         public string BillToPhone { get; set; }
         public string BillToEmail { get; set; }
-        
+
+        public int Discount { get; set; }
+
         public virtual ICollection<InvoiceItem> InvoiceItems { get; set; }
     }
 }

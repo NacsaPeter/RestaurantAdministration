@@ -12,6 +12,7 @@ namespace RestaurantAdministration.Application.Dtos
         public int? TableReservationId { get; set; }
         public TableReservationDto TableReservation { get; set; }
         public bool IsDelivery { get; set; }
+        public bool IsPaid { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Name { get; set; }
@@ -25,6 +26,7 @@ namespace RestaurantAdministration.Application.Dtos
             Id = order.Id;
             TableReservationId = order.TableReservationId;
             IsDelivery = order.IsDelivery;
+            IsPaid = order.PaymentTime != null;
             Address = order.DeliveryAddress;
             Phone = order.DeliveryPhone;
             Name = order.DeliveryName;

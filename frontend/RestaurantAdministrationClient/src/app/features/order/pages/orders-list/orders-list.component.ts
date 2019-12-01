@@ -4,6 +4,7 @@ import { IOrderViewModel } from '../../models/order.model';
 import { OrderService } from '../../services/order.service';
 import { tap, catchError, finalize } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
     templateUrl: './orders-list.page.component.html'
@@ -12,7 +13,7 @@ export class OrdersListPageComponent implements OnInit {
 
     isLoading: boolean;
 
-    displayedColumns: string[] = ['date', 'details1', 'details2', 'details3'];
+    displayedColumns: string[] = ['date', 'details1', 'details2', 'details3', 'isPaid', 'pay'];
     dataSource = new MatTableDataSource<IOrderViewModel>([]);
 
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -21,6 +22,7 @@ export class OrdersListPageComponent implements OnInit {
     constructor(
         private snackbar: MatSnackBar,
         private service: OrderService,
+        private router: Router
     ) {}
 
     ngOnInit() {
@@ -33,6 +35,10 @@ export class OrdersListPageComponent implements OnInit {
             catchError(err => of(this.snackbar.open('Could not fetch data.', 'Close'))),
             finalize(() => this.isLoading = false)
         ).subscribe();
+    }
+
+    pay(order: IOrderViewModel) {
+        this.router.navigate(['/order/pay', order.id]);
     }
 
 }

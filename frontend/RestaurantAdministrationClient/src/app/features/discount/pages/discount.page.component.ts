@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IDiscountViewModel } from '../models/discount.model';
 import { DiscountService } from '../services/discount.service';
 import { MatSnackBar, MatDialog } from '@angular/material';
@@ -10,9 +10,9 @@ import { RemoveItemDialogComponent } from 'src/app/shared/components/remove-item
 @Component({
     templateUrl: './discount.page.component.html'
 })
-export class DiscountPageComponent {
+export class DiscountPageComponent implements OnInit {
 
-    displayedColumns: string[] = ['code', 'value', 'type', 'isUsed', 'delete'];
+    displayedColumns: string[] = ['code', 'value', 'type', 'isUsed'];
     discounts: IDiscountViewModel[] = [];
     isLoading: boolean;
 
@@ -20,9 +20,9 @@ export class DiscountPageComponent {
         private service: DiscountService,
         private snackbar: MatSnackBar,
         private dialog: MatDialog,
-    ){}
+    ) {}
 
-    ngOnInit(){
+    ngOnInit() {
         this.fetchData().subscribe();
     }
 
@@ -53,7 +53,7 @@ export class DiscountPageComponent {
     removeDiscount(discount: IDiscountViewModel){
         const dialogRef = this.dialog.open(RemoveItemDialogComponent, {
             data: {
-                text: 'Code: '+ discount.code + ' discount',
+                text: 'Code: ' + discount.code + ' discount',
                 item: {...discount}
             }
         });

@@ -11,5 +11,6 @@ namespace RestaurantAdministration.Application.Interfaces
         Task<DiscountDto> CreateDiscountAsync(DiscountDto discountDto);
         Task DeleteDiscountAsync(int id);
         Task<IEnumerable<DiscountDto>> GetAllDiscountAsync();
+        Task<DiscountDto> GetDiscountByCodeAsync(string code);
     }
 }

@@ -44,7 +44,7 @@ namespace RestaurantAdministration.Application.AppServices
         public async Task<TableReservationDto> CreateTableReservationAsync(CreateTableReservationDto dto)
         {
             TableReservation created = await _repository
-                .CreateTableReservationAsync(dto.NumberOfSeats, dto.Date, dto.Hours, dto.Name);
+                .CreateTableReservationAsync(dto.NumberOfSeats, dto.Date.AddHours(1), dto.Hours, dto.Name);
             if (created == null)
             {
                 throw new Exception("No available tables.");

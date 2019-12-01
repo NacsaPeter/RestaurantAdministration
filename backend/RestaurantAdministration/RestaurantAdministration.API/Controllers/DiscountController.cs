@@ -44,13 +44,26 @@ namespace RestaurantAdministration.API.Controllers
             }
         }
 
-        [HttpDelete("discount/{id}")]
+        [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteDiscount(int id)
         {
             try
             {
                 await _service.DeleteDiscountAsync(id);
                 return Ok();
+            }
+            catch (Exception e)
+            {
+                return Conflict(e.Message);
+            }
+        }
+
+        [HttpGet("{code}")]
+        public async Task<ActionResult<DiscountDto>> GetDiscountByCode(string code)
+        {
+            try
+            {
+                return Ok(await _service.GetDiscountByCodeAsync(code));
             }
             catch (Exception e)
             {

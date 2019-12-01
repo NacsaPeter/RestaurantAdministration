@@ -40,7 +40,28 @@ namespace RestaurantAdministration.Application.AppServices
             var dto = new OrderDto(order);
             foreach (var item in dto.OrderItems)
             {
-                item.MenuItemName = await _repository.GetMenuItemNameById(item.MenuItemId);
+                item.MenuItemName = (await _repository.GetMenuItemById(item.MenuItemId)).Name;
+            }
+            return dto;
+        }
+
+        public async Task<OrderDto> GetOrderByIdAsync(int orderId)
+        {
+            var order = await _repository.GetOrderByIdAsync(orderId);
+            if (order == null)
+            {
+                throw new Exception("Order does not exist");
+            }
+            var dto = new OrderDto(order);
+            if (order.TableReservation != null)
+            {
+                dto.TableReservation = new TableReservationDto(order.TableReservation);
+            }
+            foreach (var item in dto.OrderItems)
+            {
+                var menuItem = await _repository.GetMenuItemById(item.MenuItemId);
+                item.MenuItemName = menuItem.Name;
+                item.MenuItemPrice = menuItem.Price;
             }
             return dto;
         }

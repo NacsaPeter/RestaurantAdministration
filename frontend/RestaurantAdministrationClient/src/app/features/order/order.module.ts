@@ -7,6 +7,9 @@ import { DeliveryPageComponent } from './pages/delivery/delivery.page.component'
 import { CreateOrderPageComponent } from './pages/create-order/create-order.page.component';
 import { EditOrderPageComponent } from './pages/edit-order/edit-order.page.component';
 import { OrdersListPageComponent } from './pages/orders-list/orders-list.component';
+import { PayPageComponent } from './pages/pay/pay.component.page';
+import { PaymentService } from './services/payment.service';
+import { GenerateInvoiceDialogComponent } from './components/generate-invoice-dialog.component';
 
 @NgModule({
   declarations: [
@@ -15,14 +18,19 @@ import { OrdersListPageComponent } from './pages/orders-list/orders-list.compone
     CreateOrderPageComponent,
     EditOrderPageComponent,
     OrdersListPageComponent,
+    PayPageComponent,
+    GenerateInvoiceDialogComponent,
   ],
   imports: [
     SharedModule,
     OrderRoutingModule,
   ],
   providers: [
-    OrderService
+    OrderService,
+    PaymentService,
   ],
-  entryComponents: []
+  entryComponents: [
+    GenerateInvoiceDialogComponent,
+  ]
 })
 export class OrderModule { }

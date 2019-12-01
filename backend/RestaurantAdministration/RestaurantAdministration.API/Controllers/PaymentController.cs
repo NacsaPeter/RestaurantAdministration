@@ -54,5 +54,22 @@ namespace RestaurantAdministration.API.Controllers
                 return Conflict(e.Message);
             }
         }
+
+        [HttpPost("payment")]
+        public ActionResult<PaymentResultDto> GeneratePayment(GeneratePaymentDto generatePaymentDto)
+        {
+            if (generatePaymentDto == null)
+            {
+                return BadRequest("Payment data must be set!");
+            }
+            try
+            {
+                return Ok(_service.GeneratePayment(generatePaymentDto));
+            }
+            catch (Exception e)
+            {
+                return Conflict(e.Message);
+            }
+        }
     }
 }

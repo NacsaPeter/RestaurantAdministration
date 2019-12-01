@@ -37,7 +37,6 @@ namespace RestaurantAdministration.EF.Repositories
             }
 
             entity.PaymentTime = DateTime.Now;
-            entity.TableReservationId = null;
             await _context.SaveChangesAsync();
             return true;
         }

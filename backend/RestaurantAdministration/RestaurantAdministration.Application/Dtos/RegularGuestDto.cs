@@ -11,6 +11,7 @@ namespace RestaurantAdministration.Application.Dtos
         public string Name { get; set; }
         public DateTime BirthDay { get; set; }
         public string Address { get; set; }
+        public int Discount { get; set; }
 
         public RegularGuestDto() { }
 

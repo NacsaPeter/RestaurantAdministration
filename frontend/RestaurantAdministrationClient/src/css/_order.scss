@@ -54,6 +54,26 @@
             color: #ffffff;
         }
 
+        .generate-button {
+            position: absolute;
+            right: 50px;
+            width: 100px;
+            box-shadow: none;
+            border-radius: 0px;
+            background: $medium-green;
+            color: #ffffff;
+        }
+
+        .pay-button {
+            position: absolute;
+            right: 260px;
+            width: 100px;
+            box-shadow: none;
+            border-radius: 120px;
+            background: $dark-green;
+            color: #ffffff;
+        }
+
         .cancel-button {
             position: absolute;
             right: 50px;
@@ -61,9 +81,30 @@
             border-radius: 120px;
         }
 
+        .invoice-button {
+            position: absolute;
+            right: 30px;
+            width: 150px;
+            border-radius: 120px;
+        }
+
+        .download-button {
+            position: absolute;
+            right: 30px;
+            width: 150px;
+            border-radius: 120px;
+            background: $medium-green;
+            color: #ffffff;
+        }
+
         .mat-raised-button[disabled] {
             background: rgba($medium-green, 0.3);
         }
+    }
+    
+    .search-button {
+        box-shadow: none;
+        background: $light-green;
     }
 
     .mat-expansion-panel, .mat-expansion-panel-header {
@@ -80,5 +121,13 @@
         background: rgba($medium-green, 0.9);
         cursor: pointer;
         color: #ffffff;
+    }
+}
+
+.payment-result-container {
+    > div {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid $dark-green;
     }
 }

@@ -11,5 +11,6 @@ namespace RestaurantAdministration.EF.Interfaces
         Task<Discount> AddDiscountAsync(Discount discount);
         Task<bool> DeleteDiscountAsync(int id);
         Task<IEnumerable<Discount>> GetAllDiscountAsync();
+        Task<Discount> GetDiscountByCodeAsync(string code);
     }
 }

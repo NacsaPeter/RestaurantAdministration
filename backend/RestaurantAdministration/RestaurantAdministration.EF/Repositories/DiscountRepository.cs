@@ -54,5 +54,12 @@ namespace RestaurantAdministration.EF.Repositories
         {
             return await _context.Discounts.ToListAsync();
         }
+
+        public async Task<Discount> GetDiscountByCodeAsync(string code)
+        {
+            return await _context.Discounts
+                .Where(x => x.Code == code)
+                .SingleOrDefaultAsync();
+        }
     }
 }

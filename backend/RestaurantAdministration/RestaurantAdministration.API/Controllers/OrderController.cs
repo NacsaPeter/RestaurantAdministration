@@ -72,5 +72,18 @@ namespace RestaurantAdministration.API.Controllers
         {
             return Ok(await _service.GetOrdersAsync());
         }
+
+        [HttpGet("order/{orderId}")]
+        public async Task<ActionResult<OrderDto>> GetOrderById(int orderId)
+        {
+            try
+            {
+                return Ok(await _service.GetOrderByIdAsync(orderId));
+            }
+            catch (Exception e)
+            {
+                return Conflict(e.Message);
+            }
+        }
     }
 }

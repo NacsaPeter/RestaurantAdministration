@@ -14,6 +14,7 @@ export interface IOrderViewModel {
     tableReservation?: ITableReservationViewModel;
     date?: Date;
     isDelivery: boolean;
+    isPaid?: boolean;
     address: string;
     name: string;
     phone: string;
@@ -26,4 +27,5 @@ export interface IOrderItemViewModel {
     notes: string;
     menuItemId: number;
     menuItemName: string;
+    menuItemPrice?: number;
 }

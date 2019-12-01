@@ -5,6 +5,7 @@ import { DeliveryPageComponent } from './pages/delivery/delivery.page.component'
 import { CreateOrderPageComponent } from './pages/create-order/create-order.page.component';
 import { EditOrderPageComponent } from './pages/edit-order/edit-order.page.component';
 import { OrdersListPageComponent } from './pages/orders-list/orders-list.component';
+import { PayPageComponent } from './pages/pay/pay.component.page';
 
 const routes: Routes = [
   { path: '', component: OrderPageComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'create/:number', component: CreateOrderPageComponent },
   { path: 'edit/:number', component: EditOrderPageComponent },
   { path: 'orders', component: OrdersListPageComponent },
+  { path: 'pay/:orderid', component: PayPageComponent },
 ];
 
 @NgModule({

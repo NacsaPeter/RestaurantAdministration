@@ -12,5 +12,6 @@ namespace RestaurantAdministration.Application.Interfaces
         Task<OrderDto> GetOrderAsync(int reservationId);
         Task<OrderDto> UpdateOrderAsync(OrderDto orderDto);
         Task<IEnumerable<OrderDto>> GetOrdersAsync();
+        Task<OrderDto> GetOrderByIdAsync(int orderId);
     }
 }

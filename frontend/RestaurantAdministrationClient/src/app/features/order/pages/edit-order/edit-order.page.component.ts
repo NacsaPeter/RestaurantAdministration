@@ -79,6 +79,10 @@ export class EditOrderPageComponent implements OnInit {
         this.router.navigateByUrl('/order');
     }
 
+    pay() {
+        this.router.navigate(['/order/pay', this.order.id]);
+    }
+
     addItem(menuItem: IMenuItemViewModel) {
         const item: IOrderItemViewModel = {
             numberOfItems: 1,

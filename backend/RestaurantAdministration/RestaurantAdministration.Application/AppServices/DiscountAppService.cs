@@ -48,5 +48,15 @@ namespace RestaurantAdministration.Application.AppServices
             IEnumerable<Discount> discounts = await _repository.GetAllDiscountAsync();
             return discounts.Select(d => new DiscountDto(d));
         }
+
+        public async Task<DiscountDto> GetDiscountByCodeAsync(string code)
+        {
+            Discount discount = await _repository.GetDiscountByCodeAsync(code);
+            if (discount == null)
+            {
+                throw new Exception("Discount does not exist.");
+            }
+            return new DiscountDto(discount);
+        }
     }
 }

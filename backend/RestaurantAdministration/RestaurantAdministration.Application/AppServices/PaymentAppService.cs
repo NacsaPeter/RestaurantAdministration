@@ -43,7 +43,7 @@ namespace RestaurantAdministration.Application.AppServices
                 BillToStreetAddress = generateInvoiceDto.BillToStreetAddress,
                 BillToCityCountryZIP = $"{generateInvoiceDto.BillToZIP} {generateInvoiceDto.BillToCity}, {generateInvoiceDto.BillToCountry}",
                 BillToPhone = generateInvoiceDto.BillToPhone,
-                BillToEmail = generateInvoiceDto.BillToEmail,
+                Discount = generateInvoiceDto.Discount,
                 InvoiceItems = order.OrderItems.Select(x => new InvoiceItem
                 {
                     Description = x.MenuItem.Name,
@@ -55,6 +55,47 @@ namespace RestaurantAdministration.Application.AppServices
 
             Invoice created = await _repository.GenerateInvoiceAsync(invoice);
             return new InvoiceDto(created);
+        }
+
+        public PaymentResultDto GeneratePayment(GeneratePaymentDto generatePaymentDto)
+        {
+            PaymentResultDto paymentResultDto = new PaymentResultDto
+            {
+                FullDiscount = 0,
+                FullPrice = 0
+            };
+
+            generatePaymentDto.Order.OrderItems
+                .ForEach(x => paymentResultDto.FullPrice += x.MenuItemPrice * x.NumberOfItems);
+
+            int regularGuestDiscount = 0;
+            if (generatePaymentDto.RegularGuest != null)
+            {
+                regularGuestDiscount = paymentResultDto.FullPrice 
+                    - paymentResultDto.FullPrice * (generatePaymentDto.RegularGuest.Discount / 100);
+            }
+
+            int discountDiscount = 0;
+            if (generatePaymentDto.Discount != null)
+            {
+                if (generatePaymentDto.Discount.Type == "Price")
+                {
+                    discountDiscount = generatePaymentDto.Discount.Value;
+                }
+                else
+                {
+                    discountDiscount = paymentResultDto.FullPrice
+                        - paymentResultDto.FullPrice * (generatePaymentDto.Discount.Value / 100);
+                }
+            }
+
+            paymentResultDto.FullDiscount = regularGuestDiscount + discountDiscount;
+            paymentResultDto.Result = paymentResultDto.FullPrice - paymentResultDto.FullDiscount;
+            if (paymentResultDto.Result < 0)
+            {
+                paymentResultDto.Result = 0;
+            }
+            return paymentResultDto;
         }
 
         public async Task PayAsync(OrderDto orderDto)

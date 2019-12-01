@@ -1,0 +1,27 @@
+<app-dialog [title]="'Generate invoice'" [buttonText]="'Generate'" [dialogClose]="invoiceData"
+    [disabled]="!invoiceData.billToName || !invoiceData.billToPhone || !invoiceData.billToStreetAddress || !invoiceData.billToCity || !invoiceData.billToCountry || !invoiceData.billToZIP">
+
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="Name" [(ngModel)]="invoiceData.billToName" type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Phone" [(ngModel)]="invoiceData.billToPhone" type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Street address" [(ngModel)]="invoiceData.billToStreetAddress" type="text">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="City" [(ngModel)]="invoiceData.billToCity" type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Country" [(ngModel)]="invoiceData.billToCountry" type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="ZIP" [(ngModel)]="invoiceData.billToZIP" type="text">
+        </mat-form-field>
+    </div>
+
+</app-dialog>

@@ -23,6 +23,7 @@ namespace RestaurantAdministration.Application.AppServices
         {
             RegularGuest guest = dto.ToEntity();
             guest.Points = 0;
+            guest.BirthDay = guest.BirthDay.AddHours(2);
             RegularGuest created = await _repository.AddRegularGuestAsync(guest);
             if (created == null)
             {
@@ -40,7 +41,31 @@ namespace RestaurantAdministration.Application.AppServices
         public async Task<IEnumerable<RegularGuestDto>> GetRegularGuestsAsync(string name)
         {
             var guests = await _repository.GetRegularGuestsAsync(name);
-            return guests.Select(g => new RegularGuestDto(g));
+            var dtos = new List<RegularGuestDto>();
+            foreach (var guest in guests)
+            {
+                var dto = new RegularGuestDto(guest);
+                int discount = 0;
+                if (guest.Points >= 5 && guest.Points < 10)
+                {
+                    discount = 5;
+                }
+                else if (guest.Points >= 10 && guest.Points < 15)
+                {
+                    discount = 10;
+                }
+                else if (guest.Points >= 15 && guest.Points < 20)
+                {
+                    discount = 15;
+                }
+                else if (guest.Points >= 20)
+                {
+                    discount = 20;
+                }
+                dto.Discount = discount;
+                dtos.Add(dto);
+            }
+            return dtos;
         }
     }
 }
